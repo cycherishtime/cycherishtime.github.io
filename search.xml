@@ -13,11 +13,24 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+      <categories>
+        <category>ES6</category>
+      </categories>
+      <tags>
+        <tag>基础积累</tag>
+      </tags>
   </entry>
   <entry>
     <title>屁屁大王</title>
     <url>/2021/01/08/%E5%B1%81%E5%B1%81%E5%A4%A7%E7%8E%8B/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><p>链表 栈  队列 图 树 排序 </p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法积累</tag>
+      </tags>
   </entry>
   <entry>
     <title>我的第一篇博客文章</title>
