@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>caiyong</title>
+    <url>/2021/03/05/caiyong/</url>
+    <content><![CDATA[<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p><strong>1：var</strong>  全局变量，在全局和块级的定义作用域一样都是全局，同名后者覆盖前者，但是在函数中定义则不一样</p>
+<p><strong>2：let</strong>  定义局部变量，只在局部或者块级作用域起作用</p>
+<a id="more"></a>
+
+<p><img src="/2021/03/05/caiyong/111.png"></p>
+<p>./caiyong/111.png</p>
+<p><strong>2.1</strong>let a=1,let a=2,在同一个作用域定义两个是会报错的</p>
+<p><strong>3：</strong>const 定义一个常量，常量名通常使用大写来定义，只在局部（块级作用域内）起作用</p>
+<h3 id="let和const的作用"><a href="#let和const的作用" class="headerlink" title="let和const的作用"></a>let和const的作用</h3><ul>
+<li>禁止重复说明</li>
+<li>支持块级作用域</li>
+<li>控制修改</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>ES6</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2021/01/07/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info.<a id="more"></a> If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -21,7 +42,7 @@
       </tags>
   </entry>
   <entry>
-    <title>屁屁大王</title>
+    <title>后续补充学习内容充实博客</title>
     <url>/2021/01/08/%E5%B1%81%E5%B1%81%E5%A4%A7%E7%8E%8B/</url>
     <content><![CDATA[<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><p>链表 栈  队列 图 树 排序 </p>
 ]]></content>
