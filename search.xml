@@ -1,30 +1,451 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>9.1</title>
-    <url>/2021/09/01/9-1/</url>
-    <content><![CDATA[<p><img src="/2021/09/01/9-1/post-banner.png"></p>
-]]></content>
+    <title></title>
+    <url>/2021/10/18/%E6%96%B9%E6%B3%95%E7%A7%AF%E7%B4%AF/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/01/07/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info.<a id="more"></a> If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+    <title>CSS积累(1)</title>
+    <url>/2021/09/01/9-1/</url>
+    <content><![CDATA[<p><img src="/2021/09/01/9-1/post-banner.png"></p>
+<a id="more"></a>
+
+<h4 id="1：CSS引入方式及三大特性"><a href="#1：CSS引入方式及三大特性" class="headerlink" title="1：CSS引入方式及三大特性"></a>1：CSS引入方式及三大特性</h4><ul>
+<li>行内样式表</li>
+<li>内部样式表,写在style标签中</li>
+<li>外部样式表</li>
+<li>三大特性：1:层叠性(样式冲突，后定义会覆盖前面的)，2：继承性,子元素可以继承父元素的样式（如text-,font-,line-这些元素开头的可以继承，以及color属性) ,3:优先级(权重)</li>
+</ul>
+<h4 id="2-CSS-选择器类型及权重优先级"><a href="#2-CSS-选择器类型及权重优先级" class="headerlink" title="2:CSS 选择器类型及权重优先级"></a>2:CSS 选择器类型及权重优先级</h4><ul>
+<li><p>类选择器.(可以多类名，开发最常见)  </p>
+</li>
+<li><p>id选择器#(只能调用一次,用于页面唯一性元素上面)   </p>
+</li>
+<li><p>通配符选择器 ：使用 * 定义，选取页面所有元素标签</p>
+</li>
+<li><p>标签选择器</p>
+<p><strong>以上是基础选择器，下面是复合选择器(基础选择器的组合)</strong></p>
+</li>
+<li><p>后代选择器：元素1 元素2… {样式},元素2为1的后代元素(儿子，孙子，一层层嵌套）,1和2可以是任意基础选择器</p>
+</li>
+<li><p>子选择器：元素1&gt;元素2{样式},只能选择某元素最近一级子元素</p>
+</li>
+<li><p>并集选择器，元素1,元素2 {},各选择器用逗号隔开</p>
+</li>
+<li><p>伪类选择器</p>
+<p>链接伪类,写时需要遵循下面顺序</p>
+</li>
+<li><p><img src="/2021/09/01/9-1/1.png" alt="image-20210905144646750"></p>
+</li>
+<li><p>:focus伪类选择器，选取获得焦点的表单元素，焦点就是光标，一般input类表单元素才能获取，所以这个选择器主要针对表单元素来说</p>
+</li>
+<li><p>CSS3新增选择器</p>
+<p><strong>1：属性选择器</strong>–可以根据元素特定属性来选择属性</p>
+<p><img src="/2021/09/01/9-1/2.png" alt="image-20210908162853518"></p>
+<p> <strong>2：结构伪类选择器</strong></p>
+<p><img src="/2021/09/01/9-1/3.png" alt="image-20210908163817908"></p>
+<p> 3：伪元素选择器:: before<code>,</code>::after</p>
+<p>原理：before和after创建一个元素，但是属于行内元素(想要设置大小，需要显示模式转换）。新建的这个元素在文档树中找不到，所以称为伪元素</p>
+<ul>
+<li><p>before和after必须有content属性</p>
+</li>
+<li><pre><code class="css">div::before&#123;
+    content:&#39;我是奥特曼&#39;
+&#125;
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- ！important为无穷大, 内联样式，如 style&#x3D;xxx，权重为 1000 </span><br><span class="line">- id选择器，权值为 100 </span><br><span class="line">- **class、伪类和属性选择器**，如 .content, :hover, [attribute]，权值为 10 ,注意a:hover权重为a 1 + :hover 10 &#x3D; 11</span><br><span class="line">- **标签选择器和伪元素选择器**，权值为 1 </span><br><span class="line"></span><br><span class="line">**需要注意的是：通用选择器(\*)，子选择器(&gt;)和相邻同胞选择器(+)并不在这四个等级中，所以它们的权重都为 0,继承的权重也为0**。</span><br><span class="line"></span><br><span class="line">权重大的选择器优先级也越高，相同权重的优先级又遵循后定义覆盖前面定义的情况。</span><br><span class="line"></span><br><span class="line">**伪类和伪元素**：</span><br><span class="line"></span><br><span class="line">一个 : 的为伪类: &#96;:hover&#96;,&#96;:focus&#96;,&#96;:first-of-type&#96;,&#96;:first-child&#96;</span><br><span class="line"></span><br><span class="line">两个 :: 为伪元素:&#96;:: before&#96;,&#96;::after&#96;</span><br><span class="line"></span><br><span class="line">#### 3:CSS元素显示模式总结</span><br><span class="line"></span><br><span class="line">![image-20210906143713048](.&#x2F;9-1&#x2F;4.png)</span><br><span class="line"></span><br><span class="line">1：元素显示模式转换  </span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96; css</span><br><span class="line">display:block||inline||inline-block</span><br></pre></td></tr></table></figure>
+#### 4：页面布局三大核心之--盒子模型
+</code></pre>
+</li>
+</ul>
+<p>CSS盒模型包含了元素内容区域（content）、边框（border）、内边距（padding）、外边距（margin）。在标准盒模型中，元素的width和height属性为元素的content的宽高。但是在实践中发现，当我们想要一个固定宽高的盒子，并给元素增加padding之后，元素的实际宽高会变大，需要我们自己去手动修改height和width的值，很不方便。因此在** CSS3 中提供了 box-sizing 属性**用来改变标准盒模型。</p>
+<ul>
+<li><p>box-sizing: content-box(标准盒子模型)：默认值元素的height和width为元素content区域的宽高</p>
+</li>
+<li><p>box-sizing: border-box：元素的height和width为元素 content+padding+border的宽高，当设置padding或border时，内容content会自动缩小</p>
+</li>
+</ul>
+<p>box-sizing: inherit,从父元素继承</p>
+</li>
+<li><p><strong>边框(border)</strong>–宽度，样式(solid实线,dashed虚线，等等)，颜色</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">border:border-width||border-style||border-color</span><br></pre></td></tr></table></figure>
+<p>1：边框会影响盒子实际大小,测量时根据需要加上或不加上边框宽度</p>
+</li>
+<li><p><strong>内边距(padding)</strong>–内边距的复合写法</p>
+<p>1：内边距会影响盒子实际大小，如果盒子已经有了宽度和高度，此时再指定内边距，会撑大盒子，解决方式和border一样</p>
+<p>2：特殊情况：如果盒子本身没有指定width/height属性，则此时padding不会撑开盒子大小</p>
+</li>
+<li><p><strong>外边距margin</strong>–控制盒子和盒子之间的距离</p>
+<p>1：典型应用：<strong>块级</strong>盒子水平居中对齐（盒子指定宽度，左右外边距设置为auto)，这种方式对行内元素和行内块元素无效，因为行内元素没有宽度</p>
+<p>2:行内元素和行内块元素水平居中是给其父元素添加text-align:center即可</p>
+<p>3：<strong>相邻块元素垂直外边距的合并</strong>，上面元素有下边距margin-bottom,下面的元素有上边距margin-top,则他们之间的垂直间距不是magin-bottom与margin-top之和。而是取两个值中的较大者，这种情况尽量只给一个盒子添加margin值</p>
+<p>4：<strong>嵌套块元素垂直外边距的塌陷</strong>，对于两个嵌套关系的块元素，父元素有外边距同时子元素也有外边距，此时父元素会塌陷较大的外边距值</p>
+<p><strong>正常情况下,父级元素应该相对浏览器进行定位,子级相对父级定位。但由于margin的塌陷,父级相对浏览器定位.而子级没有相对父级定位,子级相对父级,就像坍塌了一样</strong>。</p>
+<p>解决方法：</p>
+<ul>
+<li>position:absolute/fixed </li>
+<li>float:left/right </li>
+<li>display:inline-block </li>
+<li>overflow:hidden </li>
+<li>可以给父元素定义上边框和上内边距</li>
+</ul>
+<p>这四种方法都能触发BFC，但是使用的时候会带来不同的麻烦，需要根据具体情况解决 margin 塌陷。</p>
+<h4 id="5：页面布局三大核心之–浮动模型"><a href="#5：页面布局三大核心之–浮动模型" class="headerlink" title="5：页面布局三大核心之–浮动模型"></a>5：页面布局三大核心之–浮动模型</h4><p>1:语法：float：none/left/right</p>
+<p>2:浮动元素，不需要转换就具有行内块元素特性，并且不会独占一行,多个盒子都设置浮动，他们会按属性值一行显示并且顶端对齐排列，父级宽度装不下这些浮动盒子，多出的盒子会另起一行</p>
+<p>3:clear 属性（清除浮动），值：left、right、both清除两边的效果(推荐）：作用是抵消其他元素浮动对当前元素产生的影响</p>
+<p>4:清除浮动方式</p>
+<ul>
+<li>1：额外标签法：在浮动元素结尾处加空div标签，clear :both(或在下个元素上加clear:both)，例如 </li>
+</ul>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;div style=&quot;clear:both&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>2;浮动元素的父级div定义overflow:hidden(缺点：无法显示浮动元素溢出的部分)</li>
+<li>3:浮动元素的父元素定宽高</li>
+<li>4, :after伪元素法（代码如下固定，类名自取），如下，给父元素添加类.clearfix即可，百度网易常用</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span>&#123;</span><br><span class="line">    <span class="attribute">content</span>:<span class="string">&quot;&quot;</span>,</span><br><span class="line">    display:block,</span><br><span class="line">    height:<span class="number">0</span></span><br><span class="line">    clear:both;</span><br><span class="line">    <span class="attribute">visibility</span>:hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clearfix</span>&#123;</span><br><span class="line">    <span class="attribute">*zoom</span>:<span class="number">1</span>  //照顾低版本</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>5,双伪元素清除,腾讯常用</li>
+</ul>
+<p><img src="/2021/09/01/9-1/5.png" alt="image-20210906214138751"></p>
+<ul>
+<li>通过BFC的方式清除浮动<ul>
+<li>position:absolute/fixed，不为 static 或 relative </li>
+<li>float:left/right </li>
+<li>display:inline-block，table-cell </li>
+<li>overflow:hidden，scroll，不为 visible</li>
+</ul>
+</li>
+</ul>
+<p><strong>为什么清除浮动：由于父盒子很多情况下，不方便给高度(需要由子盒子内容撑开盒子),但是子盒子浮动又不占有位置，导致父盒子高度为0，就会影响下面的标准流盒子</strong></p>
+<p>5：<strong>网页布局第一准则：先用标准流的父元素排列上下位置，之后内部采用浮动排列左右位置</strong></p>
+<h4 id="6：页面布局三大核心之–定位"><a href="#6：页面布局三大核心之–定位" class="headerlink" title="6：页面布局三大核心之–定位"></a>6：页面布局三大核心之–定位</h4><ul>
+<li><p><strong>static–静态定位</strong>(默认定位方式，无定位的意思，按照标准流摆放位置)</p>
+</li>
+<li><p><strong>relative–相对定位</strong></p>
+<p>1:相对自己原来位置来移动（和自己的父元素和浏览器无关）</p>
+<p>2：原来在标准流的位置继续占有，后面的盒子任然以标准流方式对待他</p>
+</li>
+<li><p><strong>absolute绝对定位</strong>–相对他的祖先元素来说的,不再占有原先的位置</p>
+<p>1：相对于其最接近的一个最有定位设置的父级元素进行绝对定位，如果元素的父级没有设置定位属性，则依据 body 元素(窗口显示内容区）左上角作为参考进行定位</p>
+<p>2：如果它的父元素没有设置定位，那么就得看它父元素的父元素是否有设置定位，如果还是没有就继续向更高层的祖先元素类推，总之它的定位就是相对于设置了除static定位之外的定位的第一个祖先元素，如果所有的祖先元素都没有以上三种定位中的其中一种定位，那么它就会相对于文档body来定位（并非相对于浏览器窗口，相对于窗口定位的是fixed）。</p>
+<p>3：子绝父相–1：子级绝对定位，不会占有位置，可以放到父盒子里面的任何一个位置，不会影响其他的兄弟盒子。2：父盒子需要加定位限制子盒子在父盒子内显示，父盒子布局时，需要占有位置，所以只能是相对定位</p>
+<p>4：绝对定位盒子居中算法：</p>
+<p><img src="/2021/09/01/9-1/6.png" alt="image-20210907152756088"></p>
+</li>
+<li><p><strong>fixed固定定位</strong></p>
+<p>1：以浏览器可视窗口为参照点移动元素</p>
+<p>2：和父元素没关系</p>
+<p>3：不随滚动条滚动</p>
+<p>4：不再占有原来的位置</p>
+</li>
+<li><p><strong>sticky粘性定位</strong>（可以认为是相对定位和固定定位的混合）</p>
+<p><img src="/2021/09/01/9-1/7.png" alt="image-20210907152316883"></p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>#### 7：flex布局（弹性布局）和传统布局
+
+![image-20210907164844457](./9-1/8.png)
+
+* **flex布局原理，通过给父盒子添加flex属性，来控制子盒子的位置和排列方式**
+
+* 采用flex布局的元素，称为flex**容器**，它所有的子元素称为flex**项目**
+
+
+
+  ##### 7.1容器的属性
+
+1:**flex-direction **(设置主轴)
+
+属性设置容器主轴的方向,包含四个属性值：**row**: 默认值，表示沿水平方向，由左到右。**row-reverse** ：表示沿水平方向，由右到左,**column**：表示垂直方向，由上到下**column-reverse**:表示垂直方向，由下到上
+
+2:**flex-wrap属性**
+
+用于设置当项目在容器中一行无法显示的时候如何处理。三个属性值：**nowrap**：默认值，表示不换行,设置的项目的宽度就失效了，强行在一行显示.**wrap**：正常换行，第一个位于第一行的第一个。**wrap-reverse**：向上换行，第一行位于下方
+
+3：**flex-flow属性**
+
+flex-flow属性是flex-deriction和flex-wrap属性的简写，默认值为[row nowrap];,
+
+- 第一个属性值为flex-direction的属性值
+- 第二个属性值为flex-wrap的属性值
+
+4：**justify-content属性**,设置主轴上的子元素排列方式
+
+用于设置项目在容器中的对齐方式。flex-start：默认值，左对齐，flex-end：右对齐，center：居中对齐，space-between：两端对齐，space-around：每个项目两侧的间距相等
+
+
+
+5：**align-items**定义了侧轴上子元素排列方式（单行时使用）
+
+该属性主要有五个属性值
+
+* **stretch(拉伸）**：默认值：如果项目未设置高度或者高度为auto，将占满整个容器的高度
+
+* **flex-start**:侧轴的起点对齐
+
+* **flex-end** 侧轴的终点对齐
+
+* **center**侧轴居中对齐
+* **baseline** 项目的第一行文字的基线对齐
+
+
+
+6：**align-content**定义了侧轴上子元素排列方式（多行时使用）
+
+* stretch（默认值）：轴线占满整个侧轴。
+* flex-start：与侧轴的起点对齐。
+* flex-end：与侧轴的终点对齐。
+* center：与侧轴的中点对齐。
+* space-between：与侧轴两端对齐，轴线之间的间隔平均分布。
+* space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
+
+
+
+##### 7.2项目的一些属性(flex布局子项常见属性)
+
+* **flex属性**,属性定义子项目分配剩余空间，用flex来表示占多少份数。是 flex-grow属性、flex-shrink属性、flex-basis属性的简写。默认值为：0 1 auto
+
+* #### order属性,order属性设置项目排序的位置，默认值为0，数值越小越靠前
+
+* #### flex-grow属性用来控制当前项目是否放大显示。默认值为0，表示即使容器有剩余空间也不放大显示。如果设置为1，则平均分摊后放大显示。
+
+* flex-shrink属性表示元素的缩小比例。默认值为1，如果空间不够用时所有的项目同比缩小。如果一个项目的该属性设置为0，则空间不足时该项目也不缩小。
+
+* flex-basis属性表示表示项目占据主轴空间的值。默认为auto，表示项目当前默认的大小。如果设置为一个固定的值，则该项目在容器中占据固定的大小。
+
+* align-self属性控制子项自己在侧轴上的排列方式
+
+  <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span>&#123; <span class="attribute">align-self</span>: flex-start | flex-end | center | baseline | stretch &#125;</span><br></pre></td></tr></table></figure>
+#### 8.CSS画三角形
+
+​        我们往往只给border一个较小的宽度；然而这样的日常用让我们对border的形成方式产生误解，即认为border是由四个矩形边框拼接而成的,实际上，border是由三角形组合而成
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">40px</span> solid;</span><br><span class="line">    <span class="attribute">border-color</span>: transparent red transparent transparent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre>
 ]]></content>
       <categories>
-        <category>ES6</category>
+        <category>css积累</category>
       </categories>
       <tags>
-        <tag>基础积累</tag>
+        <tag>css积累</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>css积累(2)</title>
+    <url>/2021/09/10/9-10/</url>
+    <content><![CDATA[<p>css积累第二部分，持续更新</p>
+ <a id="more"></a>
+
+<h4 id="1-px-em-rem-vw-vh的区别"><a href="#1-px-em-rem-vw-vh的区别" class="headerlink" title="1:px,em,rem,vw,vh的区别"></a>1:px,em,rem,vw,vh的区别</h4><ul>
+<li>px：像素px是相对于显示器屏幕分辨率而言的。</li>
+<li>em：相对于当前父元素的字体大小,比如父元素font-size:12px,子元素宽高10em,则子元素相当于10x12=120px</li>
+<li>rem(root em)：rem相对于根元素(html元素）设置字体大小，比如html元素，html {font-size:12px},子元素宽高10rem,则子元素相当于10x12=120px, 优点：就是可以通过修改html里面文字大小来改变页面中元素的大小，可以整体控制</li>
+<li>对于只需要适配少部分手机设备，且分辨率对页面影响不大的，使用px即可 </li>
+<li>对于需要适配各种移动设备，使用rem</li>
+<li><img src="/2021/09/10/9-10/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210910153354513.png" alt="image-20210910153354513"></li>
+</ul>
+<p>vh很少使用，宽高用vw就行，适用于移动端</p>
+<h4 id="2-媒体查询"><a href="#2-媒体查询" class="headerlink" title="2:媒体查询"></a>2:媒体查询</h4><p>css3新语法，@media可以针对不同的屏幕尺寸设置不同的样式,下面是基本语法</p>
+<p><img src="/2021/09/10/9-10/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210910165914644.png" alt="image-20210910165914644"></p>
+<p>mediatype:all(所有设备)||print(打印机)||scree(电脑屏幕，平板，手机)</p>
+<p>media feature:width,min-width,max-width</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">300px</span>) &#123;</span><br><span class="line">    <span class="selector-tag">body</span> &#123;</span><br><span class="line">        <span class="attribute">background-color</span>:lightblue;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3：BFC与IFC"><a href="#3：BFC与IFC" class="headerlink" title="3：BFC与IFC"></a>3：BFC与IFC</h4><h4 id="4-圣杯布局与双飞翼布局"><a href="#4-圣杯布局与双飞翼布局" class="headerlink" title="4. 圣杯布局与双飞翼布局"></a>4. 圣杯布局与双飞翼布局</h4><p>圣杯布局与双飞翼布局是为了<strong>实现一个两侧固定宽度，中间自适应的三栏布局</strong>。两者需要遵循以下要点：</p>
+<ul>
+<li>两侧固定宽度，中间自适应 </li>
+<li>中间部分在DOM结构上优先，以便先行渲染 </li>
+<li>允许三列中的任意一列成为最高列 </li>
+<li>只需要使用一个额外的 div 标签 </li>
+</ul>
+<p>核心是左边的 div margin-left:-100%</p>
+<h4 id="5：Grid布局"><a href="#5：Grid布局" class="headerlink" title="5：Grid布局"></a>5：Grid布局</h4><p>Flex 布局是轴线布局，只能指定项目针对轴线的位置，可以看作是一维布局。</p>
+<p>Grid 布局则是将容器划分为 ”行“ 和 ”列“，产生单元格，然后指定项目)所在的单元格，可以看作是二维布局。</p>
+<h4 id="6：伪类和伪元素有什么不同"><a href="#6：伪类和伪元素有什么不同" class="headerlink" title="6：伪类和伪元素有什么不同"></a>6：伪类和伪元素有什么不同</h4><p><strong>伪类用于当已有元素处于的某个状态时，为其添加对应的样式，这个状态是根据用户行为而动态变化的</strong>，比如说，当用户悬停在指定的元素时，我们可以用:hover来描述这个元素的状态。虽然它和普通的css类相似，可以为已有的元素添加样式，但是<strong>它只有处于dom树无法描述的状态下才能为元素添加样式</strong>，所以将其称为伪类。</p>
+<p><strong>伪元素不是 DOM 中的真实元素，但是存在于最终的渲染树中，可以为其添加样式，比如说，我们可以通过：before来在一个元素前增加一些文本</strong>。</p>
+<h4 id="7-HTML5-新特性"><a href="#7-HTML5-新特性" class="headerlink" title="7. HTML5 新特性"></a>7. HTML5 新特性</h4><p>音频、视频、地理位置、localStorage、sessionStorage</p>
+]]></content>
+      <categories>
+        <category>css积累</category>
+      </categories>
+      <tags>
+        <tag>css积累</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js基础积累(1)</title>
+    <url>/2021/09/02/9-2/</url>
+    <content><![CDATA[<p> 这里积累了js中比较重要的知识</p>
+<a id="more"></a>
+
+<h4 id="1：let、const和var的概念与区别"><a href="#1：let、const和var的概念与区别" class="headerlink" title="1：let、const和var的概念与区别"></a>1：let、const和var的概念与区别</h4><p>let，const声明的变量只在其所在的代码块内有效。let声明的变量可以进行修改，而 const 用于定义不可修改的常量。</p>
+<p>var不存在块级作用域。区别：</p>
+<ul>
+<li>let,const不存在变量提升，var会有变量提升。即let，const一定要先声明，后使用 </li>
+<li>如果区域块内存在 let 和 const命令，则这个区域块内对这些命令声明的变量从一开始就形成了封闭作用域。只要在声明前使用这些变量，就会报错。 </li>
+<li>let 不会成为 window 的属性</li>
+</ul>
+<h4 id="2-ES6中的类和对象"><a href="#2-ES6中的类和对象" class="headerlink" title="2:ES6中的类和对象"></a>2:ES6中的类和对象</h4><p>1：创建类：class name{},创建对象：var  pp = new name()，constructor方法是类的构造函数，用于传递参数，返回对象实例，类的共有属性放到constructor里面，constructor函数，只要new生成实例时，就会自动调用这个函数，如果我们不写这个函数，类也会自动调用这个函数，注意细节：类中所有函数不需要写function,多个函数方法之间不需要添加逗号分割，类名首字母大写</p>
+<p>2：继承（extends,super）</p>
+<ul>
+<li>super关键字可以访问和调用父类上的函数（可以是构造函数，也可以是父类的普通函数），调用了父类的constructor函数，将子类的数据传递给父类constructor函数，此时父类的其他函数就可以使用子类的数据，子类在构造函数中使用super，必须放到this前面（必须先调用父类的构造方法，再使用子类的构造方法）</li>
+</ul>
+<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210913181825655.png" alt="image-20210913181825655"></p>
+<ul>
+<li><p>ES6中没有变量提升，所以必须先定义类，才能通过类实例化对象。类中共有的属性和方法一定要加this使用</p>
+</li>
+<li><p>constructor里面的this 指向的事创建的实例对象，而方法里面的this指向的是这个方法的调用者</p>
+</li>
+</ul>
+<p>3:创建对象的方式</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> object() <span class="comment">//利用new Object()创建对象</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;  <span class="comment">//利用对象字面量创建对象</span></span><br><span class="line">             <span class="comment">//利用构造函数创建对象</span></span><br></pre></td></tr></table></figure>
+<h4 id="3：原型和原型链"><a href="#3：原型和原型链" class="headerlink" title="3：原型和原型链"></a>3：原型和原型链</h4><p>1:构造函数中如果有函数，那么每创建一个实例如果使用了这个函数，那么就会开辟一块内存来存放这个函数，那么就会导致创建的不同实例使用构造函数中的同一个函数时，开辟不同的内存，造成空间浪费。</p>
+<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914105527995.png" alt="image-20210914105527995"></p>
+<p>一般情况下，我们的公共属性定义到构造函数里面，公共的方法我们放到原型对象身上，就可以避免上述的空间浪费问题</p>
+<p>2:</p>
+<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914112046786.png" alt="image-20210914112046786"></p>
+<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914111820473.png" alt="image-20210914111820473"></p>
+<p>3:<img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914113319604.png" alt="image-20210914113319604"></p>
+<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914114109002.png" alt="image-20210914114109002"></p>
+<p>输出结果，里面都有一个构造函数，指回构造函数本身，可以告诉我们是由哪个构造函数创造出来的<img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914114404565.png" alt="image-20210914114404565"></p>
+<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914114902842.png" alt="image-20210914114902842"></p>
+<p>4：<img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914142742902.png" alt="image-20210914142742902"></p>
+<p>5：原型链</p>
+<p>只要是对象就有 proto原型，(对象原型的简写)，指向原型对象,</p>
+<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914145936660.png" alt="image-20210914145936660"></p>
+<p>输出如下：<img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914150027660.png" alt="image-20210914150027660"></p>
+<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914150235187.png" alt="image-20210914150235187"></p>
+<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914150445539.png" alt="image-20210914150445539"></p>
+<p>综上所诉：得出下面的关系</p>
+<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914150520301.png" alt="image-20210914150520301"></p>
+<p>描述：ldh是一个对象，对象里面有一个ldh.<strong>proto</strong>,指向的是Star原型对象，Star原型对象也是一个对象，它里面的Star.prototype._proto_指向Object原型对象，而Object原型对象里面的原型指向的为空。注意：原型对象函数里面的this指向的是实例对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//对象具有属性__proto__，可称为隐式原型，一个对象的隐式原型指向构造该对象的构造函数的原型</span></span><br></pre></td></tr></table></figure>
+
+
+<p>扩展内置对象：<img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914155505927.png" alt="image-20210914155505927"></p>
+<h4 id="4：继承"><a href="#4：继承" class="headerlink" title="4：继承"></a>4：继承</h4><p>ES6之前并没有给我们提供extends继承，我们可以通过构造函数+原型对象模拟实现继承，被称为组合继承</p>
+<p>1：借用父构造函数继承属性</p>
+<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914193059002.png" alt="image-20210914193059002"></p>
+<p>2：借助原型对象继承父类型方法</p>
+<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914194636560.png"></p>
+<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914194714883.png" alt="image-20210914194714883"></p>
+<p>工作流程如上所示</p>
+<h4 id="5-严格模式"><a href="#5-严格模式" class="headerlink" title="5:严格模式"></a>5:严格模式</h4><p>1：使用严格模式</p>
+<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210915131606567.png" alt="image-20210915131606567"></p>
+<p>2：严格模式中的变化</p>
+<ul>
+<li>变量必须先声明再使用</li>
+<li>不能随意删除已经声明好的变量</li>
+<li>以前在全局作用域函数中的this指向的window对象，严格模式下全局作用域函数中的this指向undefined</li>
+<li> 严格模式下，构造函数如果不加new调用，this会报错</li>
+<li>定时器this还是指向window,事件对象还是指向调用者</li>
+<li>严格模式下，函数里面的参数，不能重名</li>
+</ul>
+<h4 id="6-高阶函数"><a href="#6-高阶函数" class="headerlink" title="6:高阶函数"></a>6:高阶函数</h4><p>定义：高阶函数是对其他函数进行操作的函数，他接收函数作为参数或将函数作为返回值输出</p>
+<h4 id="7：闭包"><a href="#7：闭包" class="headerlink" title="7：闭包"></a>7：闭包</h4><p>闭包是一个函数，闭包指有权访问另一个函数作用域中变量的函数，闭包的主要作用：延伸了变量的作用范围， 等所有函数调用结束后，变量才会销毁</p>
+<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210915154557316.png" alt="image-20210915154557316"></p>
+<h4 id="8：浅拷贝和深拷贝"><a href="#8：浅拷贝和深拷贝" class="headerlink" title="8：浅拷贝和深拷贝"></a>8：浅拷贝和深拷贝</h4><ul>
+<li>浅拷贝只是拷贝一层，更深层次对象级别的只拷贝引用</li>
+</ul>
+<p>1:遍历拷贝，for  in</p>
+<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210915174111307.png" alt="image-20210915174111307"></p>
+<p>输出结果<img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210915174154762.png" alt="image-20210915174154762"></p>
+<p>解析：上面简单的数据都拷贝过来了，下面msg看着好像也拷贝过来了，msg是一个对象，内存中会开辟一块内存地址存放它的数据，而浅拷贝只是将拷贝的存放msg这个对象的内存地址拷贝给了o，就会存在一个问题，此时o中的msg和本来的msg指向同一个地址，如果改变了o中msg,就会影响本来的msg，(注意：obj中简单的数据拷贝到o中，改变o中的简单数据类型，不会改变原来obj中简单的数据类型)</p>
+<p>2:ES6语法糖浅拷贝</p>
+<p>Object.assign(o,obj),第一个参数：拷贝给谁，第二个参数：需要拷贝的对象，这里是将obj拷贝给o.</p>
+<p>2：深拷贝：拷贝多层，每一级到数据都会拷贝，拷贝后改变o也不会影响obj，原理：拷贝时，除了新开辟用来存储msg的空间A，会将空间A重新复制一个新的空间B，B用来存储拷贝的数据，再传给o，A,B两个独立的空间，这样改变o,也不会影响obj</p>
+<ul>
+<li>相当于在再用for in对里面的数组，对象数据类型再进行一次遍历，所以可以用到递归</li>
+</ul>
+<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916092817365.png" alt="image-20210916092817365"></p>
+<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916093256994.png" alt="image-20210916093256994"></p>
+<p>语法糖：JSON.stringfy() 与 JSON.parse()</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(obj))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>存在问题：遇到函数，undefined，Symbol，Date对象时会自动忽略，遇到正则时会返回空对象。</p>
+<h4 id="9：正则表达式-Regular-Expression–有规律的表达式"><a href="#9：正则表达式-Regular-Expression–有规律的表达式" class="headerlink" title="9：正则表达式(Regular Expression–有规律的表达式)"></a>9：正则表达式(Regular Expression–有规律的表达式)</h4><p>正则也是一种对象</p>
+<p>1：</p>
+<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916105558072.png" alt="image-20210916105558072"></p>
+<p>2：<img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916105941023.png" alt="image-20210916105941023"></p>
+<p>3：[ ]表示多选一</p>
+<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916110526086.png" alt="image-20210916110526086"></p>
+<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916110554261.png" alt="image-20210916110554261"></p>
+<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916110657223.png" alt="image-20210916110657223"></p>
+<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916110953546.png" alt="image-20210916110953546"></p>
+<p>4：<img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916111350771.png" alt="image-20210916111350771"></p>
+<p>5：<img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916113558323.png" alt="image-20210916113558323"></p>
+<p>6：<img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916114408729.png" alt="image-20210916114408729"></p>
+<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916114632641.png" alt="image-20210916114632641"></p>
+]]></content>
+      <categories>
+        <category>Javascript积累</category>
+      </categories>
+      <tags>
+        <tag>Javascript积累</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue生命周期</title>
+    <url>/2021/09/24/Vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</url>
+    <content><![CDATA[<h3 id="VueJs生命周期以及其中钩子函数的实际应用"><a href="#VueJs生命周期以及其中钩子函数的实际应用" class="headerlink" title="VueJs生命周期以及其中钩子函数的实际应用"></a>VueJs生命周期以及其中钩子函数的实际应用</h3><a id="more"></a>
+
+<h4 id="1-生命周期流程图"><a href="#1-生命周期流程图" class="headerlink" title="1:生命周期流程图"></a>1:生命周期流程图</h4><p><img src="/2021/09/24/Vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0.png"></p>
+<ul>
+<li><p>简单的说生命周期就是事物从产生到消失的一个时间过程。那么vue的生命周期就是从其被创建到销毁的过程，其中包含了开始创建、初始化数据、编译模板、挂载dom（渲染） ，渲染-&gt;更新-&gt;渲染、销毁（卸载）等一系列过程。</p>
+<p>那么其中的钩子函数都担负着自己的职责，较为常用的就是created和mounted函数，可以在函数中编写相关的业务逻辑。</p>
+</li>
+</ul>
+<h4 id="2-钩子函数（分为三类）"><a href="#2-钩子函数（分为三类）" class="headerlink" title="2:钩子函数（分为三类）"></a>2:钩子函数（分为三类）</h4><p>最重要的为create和mounted</p>
+<p><strong>1:创建期间的生命周期函数</strong></p>
+<ul>
+<li><p><strong>beforeCreate</strong></p>
+<p>在实例初始化之后，数据观测和事件、生命周期初始化配置之前被调用。</p>
+<p>在beforcreate生命周期函数执行的时候，data和methods中的数据还没有初始化</p>
+</li>
+<li><p><strong>created</strong></p>
+<p>实例已经创建完成之后被调用。在这一步，实例已完成以下的配置：数据观测，<strong>属性和方法的运算</strong>，事件回调。然而，挂载阶段还没开始，**$el 属性目前不可见**。</p>
+<ul>
+<li>**从Has el option到beforemount之前的YES/NO这个判断期间，表示Vue开始编辑模版，把vue中的代码进行执行，最终，在内存中生成一个编译好的模版字符串，然后把这个模版字符串渲染为内存中的DOM,此时，只是在内存中渲染好了模版，并没有把模版挂载到真正的页面中去    **</li>
+</ul>
+</li>
+<li><p><strong>beforeMount</strong>(mount是挂载的意思)</p>
+<p>在挂载开始之前被调用：相关的 render 函数首次被调用，<strong>此时有了虚拟DOM</strong>。此函数执行时，模版已经在内存中编译好了，但是尚未挂载到页面中，此时，页面还是旧的</p>
+</li>
+<li><p>beforeMount后面那一步是将内存中编译好的模版，真实的替换到浏览器的页面中去</p>
+</li>
+<li><p><strong>mounted</strong></p>
+<p>el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用该钩子，<strong>渲染为真实DOM</strong>。只要执行完了mounted,就表示整个Vue实例已经初始化完毕了。如果要通过某些插件操作页面上的DOM节点，最早要在mounted中进行。</p>
+</li>
+</ul>
+<p><strong>2：运行期间的生命周期函数</strong></p>
+<ul>
+<li><p><strong>beforeUpdate</strong></p>
+<p>看图，数据首先肯定被更新了，，发生在虚拟 DOM 重新渲染和打补丁之前。 你可以在这个钩子中进一步地更改状态，这不会触发附加的重渲染过程。当执行beforeUpdate的时候，页面中显示的数据还是旧的，此时data中的数据是最新的，页面尚未和最新的数据保持同步</p>
+</li>
+<li><p><strong>Virtual DOM re-render and patch(render渲染的意思，patch挂载的意思)</strong></p>
+<p>这一步执行的是：先根据data中最新的数据，在内存中，重新渲染出一份最新的内存DOM树，当最新的内存DOM树被更新之后，会把最新的内存DOM树重新渲染到真实的页面中去，这就完成了数据从data(Model层)–&gt;view(视图层)的更新</p>
+</li>
+<li><p><strong>updated</strong></p>
+<p>update事件执行的时候，页面和data数据已经保持同步了，都是最新的。由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。</p>
+<p>当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作。然而在大多数情况下，你应该避免在此期间更改状态，因为这可能会导致更新无限循环。此处也可以用watch进行观测</p>
+<p>值得注意的是：该钩子在服务器端渲染期间不被调用。</p>
+</li>
+</ul>
+<p><strong>3：销毁期间的生命周期函数</strong></p>
+<ul>
+<li><p><strong>beforeDestroy</strong></p>
+<p>实例销毁之前调用。此时，实例仍然是可用的，实例身上所有的data和methods,以及过滤器，指令…，都处于可用状态，还没有真正执行销毁的过程。</p>
+</li>
+<li><p><strong>destroyed</strong></p>
+<p>vue 实例销毁后调用。调用后，vue 实例指示的所有东西都会解绑，所有的事件监听器会被卸载移除，所有的子实例也会被销毁。 </p>
+<p><strong>值得注意的是：该钩子在服务器端渲染期间不被调用</strong>。</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">	&lt;meta http-equiv=<span class="string">&quot;X-UA-Compatible&quot;</span> content=<span class="string">&quot;IE=edge&quot;</span>&gt;</span><br><span class="line">	&lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br><span class="line">	&lt;title&gt;Vue生命周期&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;script src=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">	&lt;h3 id=<span class="string">&quot;h3&quot;</span>&gt; &#123;&#123; msg &#125;&#125; &lt;/h3&gt;</span><br><span class="line">	&lt;input type=<span class="string">&quot;button&quot;</span> value=<span class="string">&quot;修改msg数据&quot;</span> @click=<span class="string">&quot;msg=&#x27;msg被更新了&#x27;&quot;</span>&gt;  </span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">	<span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">		el:<span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">		data:&#123;<span class="attr">msg</span>:<span class="string">&#x27;蛋蛋1号&#x27;</span>&#125;,</span><br><span class="line">		methods:&#123;</span><br><span class="line">			<span class="function"><span class="title">show</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">				<span class="built_in">console</span>.log(<span class="string">&#x27;执行了show方法&#x27;</span>)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;,</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="title">beforeCreate</span>(<span class="params"></span>)</span>&#123;  <span class="comment">//这是我们遇到的第一个生命周期函数，表示实例完全被创建出来之前，会执行他</span></span><br><span class="line">			<span class="comment">//console.log(this.msg);   //undefined</span></span><br><span class="line">			<span class="comment">//this.show()   //报错TypeError: this.show is not a function&quot;</span></span><br><span class="line">			<span class="comment">//注意：在beforcreate生命周期函数执行的时候，data和methods中的数据还没有初始化</span></span><br><span class="line"></span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="function"><span class="title">created</span>(<span class="params"></span>)</span>&#123;  <span class="comment">//这是我们遇到的第二个生命周期函数</span></span><br><span class="line">			<span class="comment">// console.log(this.msg);   //蛋蛋一号</span></span><br><span class="line">			<span class="comment">// this.show()            //执行了show方法</span></span><br><span class="line">			<span class="comment">//在created中，data和methods都已经被初始化好了</span></span><br><span class="line">			<span class="comment">//如果要调用methods中的方法，或者操作data中的数据，最早只能在created中操作</span></span><br><span class="line">		&#125;,</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="title">beforeMount</span>(<span class="params"></span>)</span>&#123;  <span class="comment">//这是我们遇到的第三个周期函数，表示模版已经在内存中编辑完成，但是尚未把模版渲染到页面中去</span></span><br><span class="line">			<span class="comment">// console.log(document.getElementById(&#x27;h3&#x27;).innerText);  </span></span><br><span class="line">			 <span class="comment">//输出为&#123;&#123; msg &#125;&#125;，不是蛋蛋1号</span></span><br><span class="line">			<span class="comment">//说明在beforeMount执行的时候，页面中的元素还没有被真正替换过来，只是之前写的一些模版字符串</span></span><br><span class="line">		&#125;,</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="title">mounted</span>(<span class="params"></span>)</span> &#123;  </span><br><span class="line">			 <span class="comment">//这是我们遇到的第四个生命周期函数，表示内存中的模版，已经真实挂载到了页面中，用户已经可以看到渲染后的页面了</span></span><br><span class="line">			<span class="comment">//console.log(document.getElementById(&#x27;h3&#x27;).innerText);  </span></span><br><span class="line">			 <span class="comment">//输出为蛋蛋1号</span></span><br><span class="line">			 <span class="comment">//如果要通过某些插件操作页面上的DOM节点，最早要在mounted中进行</span></span><br><span class="line">		&#125;,</span><br><span class="line"></span><br><span class="line">		<span class="comment">//接下来是运行中的两个事件</span></span><br><span class="line">		<span class="function"><span class="title">beforeUpdate</span>(<span class="params"></span>)</span> &#123;    <span class="comment">//  这时候我们的数据已经被更新了，但是界面还没有被更新</span></span><br><span class="line">			<span class="comment">//console.log(&#x27;界面上元素的内容:&#x27;+document.getElementById(&#x27;h3&#x27;).innerText);  //界面上元素的内容蛋蛋1号</span></span><br><span class="line">			<span class="comment">//console.log(&#x27;data中的msg的数据是：&#x27; + this.msg);  //data中的msg的数据是：msg被更新了</span></span><br><span class="line">			<span class="comment">//结论：当执行beforeUpdate的时候，页面中显示的数据还是旧的，此时data中的数据是最新的</span></span><br><span class="line">			 <span class="comment">//页面尚未和最新的数据保持同步</span></span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="function"><span class="title">updated</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">&#x27;界面上元素的内容:&#x27;</span>+<span class="built_in">document</span>.getElementById(<span class="string">&#x27;h3&#x27;</span>).innerText);  <span class="comment">//界面上元素的内容:msg被更新了</span></span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">&#x27;data中的msg的数据是：&#x27;</span> + <span class="built_in">this</span>.msg); <span class="comment">//data中的msg的数据是：msg被更新了</span></span><br><span class="line">			<span class="comment">//update事件执行的时候，页面和data数据已经保持同步了，都是最新的</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Vue积累</category>
+      </categories>
   </entry>
   <entry>
     <title>caiyong</title>
@@ -43,14 +464,93 @@
 <li>控制修改</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>ES6</category>
+      </categories>
       <tags>
         <tag>ES6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/01/07/hello-world/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>VUE积累</category>
+      </categories>
+      <tags>
+        <tag>VUE积累</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>promise与async/await</title>
+    <url>/2021/09/26/promise%E4%B8%8Easync-await/</url>
+    <content><![CDATA[<h3 id="Promise与async-await的用法介绍"><a href="#Promise与async-await的用法介绍" class="headerlink" title="Promise与async/await的用法介绍"></a>Promise与async/await的用法介绍</h3><a id="more"></a>
+
+<h4 id="1-什么是promise"><a href="#1-什么是promise" class="headerlink" title="1: 什么是promise"></a>1: 什么是promise</h4><ul>
+<li><p>Promise 是异步编程的一种解决方案，其实是一个构造函数，自己身上有all、reject、resolve这几个方法，原型上有then、catch等方法。减少了回调</p>
+</li>
+<li><p>三种状态：</p>
+<p>pending(等待)比如正在进行网络请求，或者定时器没有到时间。</p>
+<p>fulfill(满足)，主动回调了resolve,就处于该状态，并且回回调.then()</p>
+<p>reject(拒绝状态),当我们主动回调了reject时，就处于该状态，并且会回调.catch()</p>
+</li>
+<li><p>注意其中的resolve这两个参数，他们都是函数，resolve捕获的数据交给then处理，reject捕获的数据交给catch处理。</p>
+</li>
+<li><p>then()方法是异步执行。意思是：就是当.then()前的方法执行完后再执行then()内部的程序，这样就避免了，数据没获取到等的问题。</p>
+<p>语法：promise.then(onCompleted, onRejected);</p>
+<p>参数：onCompleted<br>必需。<br>承诺成功完成时要运行的履行处理程序函数。</p>
+<p>​           onRejected<br>可选。<br>承诺被拒绝时要运行的错误处理程序函数。</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">		<span class="keyword">var</span> p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(<span class="literal">false</span>)&#123;</span><br><span class="line">				resolve(<span class="string">&quot;数据请求成功111111111&quot;</span>)</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				reject(<span class="string">&quot;数据请求失败22222222222&quot;</span>)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br><span class="line">		<span class="built_in">console</span>.log(p1);  </span><br><span class="line"></span><br><span class="line">		p1.then(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(res);</span><br><span class="line">		&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(err);</span><br><span class="line">		&#125;)</span><br><span class="line"></span><br><span class="line">		p1.catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">&quot;catch:&quot;</span>,err);</span><br><span class="line">		&#125;)</span><br><span class="line"><span class="comment">//[[Prototype]]: Promise//[[PromiseState]]: &quot;rejected&quot;//[[PromiseResult]]: &quot;数据请求失败22222222222&quot;</span></span><br><span class="line"><span class="comment">//数据请求失败数据请求失败22222222222</span></span><br><span class="line"><span class="comment">//catch: 数据请求失败22222222222</span></span><br><span class="line">	&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="2：async关键字"><a href="#2：async关键字" class="headerlink" title="2：async关键字"></a>2：async关键字</h4><ul>
+<li><p><strong>当且仅当async修饰函数后，函数内可以使用await。await后面可以跟一个返回promise对象的函数</strong></p>
+</li>
+<li><p><strong>async+await是promise+then的语法糖</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> p1 = <span class="function">() =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>((res,rej)) =&gt;<span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>res(<span class="number">123</span>),<span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">q1</span>(<span class="params"></span>)</span>&#123;      </span><br><span class="line">    <span class="keyword">var</span> res = <span class="keyword">await</span> p1</span><br><span class="line">    <span class="built_in">console</span>.log(res)  <span class="comment">//一秒后输出123   </span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">q1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    p1().then(<span class="function"><span class="params">res</span>=&gt;</span> <span class="built_in">console</span>.log(res) )<span class="comment">//一秒后输出123</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//上面两个函数是一样的  async/await组合时可以像同步编程一样去整理代码，避免then后面又调用then这样的回调地狱</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">test1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> result1 = test1()</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;result1:&#x27;</span>,result1);<span class="comment">//result1: [[Prototype]]: Promise</span></span><br><span class="line">                                <span class="comment">//[[PromiseState]]: &quot;fulfilled&quot;</span></span><br><span class="line">                                <span class="comment">//[[PromiseResult]]: 1</span></span><br><span class="line"><span class="comment">//执行async函数时，如果返回的是一个普通的值，那么会将它封装成一个promise对象，再返回</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> funtion <span class="function"><span class="title">test2</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> data2 = <span class="keyword">await</span> <span class="number">2</span> <span class="comment">//等价于  await promise.resolve(2)</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;data2&#x27;</span>,data2)  <span class="comment">//data2 2</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>await拿的是resolve的数据或者说传给then的数据，reject的需要靠try..catch</strong></p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">test3</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">const</span> p3 = <span class="built_in">Promise</span>.reject(<span class="number">3</span>)</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		<span class="keyword">const</span> data3 = <span class="keyword">await</span> p3;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">&#x27;data3&#x27;</span>,data3)  <span class="comment">//成功就打印这个</span></span><br><span class="line">	&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">		<span class="built_in">console</span>.error(<span class="string">&#x27;e&#x27;</span>,e)      <span class="comment">//失败就输出e</span></span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	test3()    <span class="comment">// e 3</span></span><br></pre></td></tr></table></figure>
+<h4 id="3宏任务与微任务"><a href="#3宏任务与微任务" class="headerlink" title="3宏任务与微任务"></a>3宏任务与微任务</h4><p><strong>异步程序分为宏任务与微任务</strong></p>
+<ul>
+<li>宏任务：setTimeout，setInterval,ajax,读取文件,I/O事件/onClick点击事件,requestAnimationFrame（浏览器）,setImmediate（Node）</li>
+<li>微任务：promise.then，process.nextTick(node),NutationObserver（浏览器）</li>
+</ul>
+<p><strong>执行顺序</strong></p>
+<ol>
+<li>同步程序</li>
+<li>process.nextTick–该方法是在同步代码之后，异步代码执行之前执行的</li>
+<li>微任务</li>
+<li>宏任务</li>
+<li>setImmediate–异步代码执行之后执行该方法</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>九月一号开始</title>
+    <url>/2021/09/01/%E4%B9%9D%E6%9C%88%E4%B8%80%E5%8F%B7%E5%BC%80%E5%A7%8B/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+      <tags>
+        <tag>计算机网络</tag>
       </tags>
   </entry>
   <entry>
     <title>后续补充学习内容充实博客</title>
     <url>/2021/01/08/%E5%B1%81%E5%B1%81%E5%A4%A7%E7%8E%8B/</url>
     <content><![CDATA[<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><p>链表 栈  队列 图 树 排序 </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.wrapper &#123;</span><br><span class="line">  &#96;&#96;width&#96;&#96;: &#96;&#96;900px&#96;&#96;;</span><br><span class="line">  &#96;&#96;height&#96;&#96;: &#96;&#96;900px&#96;&#96;;</span><br><span class="line">  &#96;&#96;background-color&#96;&#96;: &#96;&#96;gray&#96;&#96;;</span><br><span class="line">  &#96;&#96;display&#96;&#96;: &#96;&#96;table-cell&#96;&#96;;</span><br><span class="line">  &#96;&#96;vertical-align&#96;&#96;: &#96;&#96;middle&#96;&#96;;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.content</span> &#123;</span><br><span class="line">  ``background-color``: ``red``;</span><br><span class="line">  ``<span class="selector-tag">width</span>``: ``300<span class="selector-tag">px</span>``;</span><br><span class="line">  ``<span class="selector-tag">height</span>``: ``300<span class="selector-tag">px</span>``;</span><br><span class="line">  ``<span class="selector-tag">margin</span>``: ``0` `<span class="selector-tag">auto</span>``;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
 ]]></content>
       <categories>
         <category>算法</category>
@@ -60,13 +560,469 @@
       </tags>
   </entry>
   <entry>
-    <title>我的第一篇博客文章</title>
-    <url>/2021/01/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[]]></content>
+    <title>Javascript重点总结</title>
+    <url>/2021/01/07/Javascript%E9%87%8D%E7%82%B9%E6%80%BB%E7%BB%93%20/</url>
+    <content><![CDATA[<p><img src="/2021/01/07/Javascript%E9%87%8D%E7%82%B9%E6%80%BB%E7%BB%93%20/post-banner.png"></p>
+<a id="more"></a>
+
+<h3 id="1-原始值和引用值类型及区别"><a href="#1-原始值和引用值类型及区别" class="headerlink" title="1. 原始值和引用值类型及区别"></a>1. 原始值和引用值类型及区别</h3><p>原始值，也叫基本类型：如null,undefined,string,number,boolean</p>
+<h4 id="Number数据类型"><a href="#Number数据类型" class="headerlink" title="Number数据类型"></a>Number数据类型</h4><ul>
+<li><p>Number数据类型包含整数和浮点数，其中浮点数至少包含到小数点后一位。</p>
+</li>
+<li><p>NaN也属于Number类型。</p>
+<p>1.对于NaN经过任何操作（加减乘除等）后结果均为NaN。</p>
+<p>2.NaN不等于NaN</p>
+</li>
+</ul>
+<h4 id="string类型"><a href="#string类型" class="headerlink" title="string类型"></a>string类型</h4><ul>
+<li>字符串类型的数据有length属性</li>
+<li>String()函数适用于将任何数据类型转为string类型，但不支持转进制字符串</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">String</span>(<span class="literal">null</span>) <span class="comment">//&#x27;null&#x27;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>toString()函数不支持将null、undefined类型转为string类型，但支持转进制字符串(如可以将字符串转成二进制形式)</li>
+</ul>
+<h4 id="Boolean类型"><a href="#Boolean类型" class="headerlink" title="Boolean类型"></a>Boolean类型</h4><ul>
+<li>包含两个值，True和False。</li>
+</ul>
+<h4 id="undefined类型"><a href="#undefined类型" class="headerlink" title="undefined类型"></a>undefined类型</h4><ul>
+<li>undefined类型只包含一个值就是undefined。<ul>
+<li>如果使用var声明了一个对象，但没有对其赋值，那么它的值就是undefined。</li>
+</ul>
+</li>
+</ul>
+<h4 id="Null类型"><a href="#Null类型" class="headerlink" title="Null类型"></a>Null类型</h4><ul>
+<li>var n = null; 当把一个变量定义为null，则表示没有给这个变量分配内存空间。</li>
+</ul>
+<h4 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h4><p>ES5的对象属性名都是字符串，这容易造成命名冲突。ES6引入一种新的数据类型：<strong>Symbol，用于创建独一无二的值</strong>。Symbol 通过 Symbol() 函数生成。Symbol 本质上是一种唯一标识符，可用作对象的唯一属性名，这样其他人就不会改写或覆盖你设置的属性值</p>
+<p>声明方法：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> id = <span class="built_in">Symbol</span>(<span class="string">&quot;id“);</span></span><br></pre></td></tr></table></figure>
+<p>Symbol 数据类型的特点是唯一性，即使是用同一个变量生成的值也不相等。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> id1 = <span class="built_in">Symbol</span>(<span class="string">&#x27;id&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> id2 = <span class="built_in">Symbol</span>(<span class="string">&#x27;id&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(id1 == id2);  <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+<p>Symbol 数据类型的另一特点是隐藏性，Symbol作为属性名，该属性不会出现在 for in, for of 循环中，也不会被 Object.keys()、Object.getOwnPropertyNames() 返回。但他也不是私有属性，有一个Object.getOwnPropertySymbols 方法可以获取对象的所有 Symbol 属性</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> id = <span class="built_in">Symbol</span>(<span class="string">&quot;id&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line"> [id]:<span class="string">&#x27;symbol&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> option <span class="keyword">in</span> obj)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(obj[option]); <span class="comment">//空</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是也有能够访问的方法：<strong>Object.getOwnPropertySymbols</strong><br>Object.getOwnPropertySymbols 方法会返回一个数组，成员是当前对象的所有用作属性名的 Symbol 值。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">let</span> id = <span class="built_in">Symbol</span>(<span class="string">&quot;id&quot;</span>);</span><br><span class="line"> <span class="keyword">let</span> obj = &#123;</span><br><span class="line">  [id]:<span class="string">&#x27;symbol&#x27;</span></span><br><span class="line"> &#125;;</span><br><span class="line"><span class="keyword">let</span> array = <span class="built_in">Object</span>.getOwnPropertySymbols(obj);</span><br><span class="line"> <span class="built_in">console</span>.log(array); <span class="comment">//[Symbol(id)]</span></span><br><span class="line"> <span class="built_in">console</span>.log(obj[array[<span class="number">0</span>]]);  <span class="comment">//&#x27;symbol&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>引用值，如Object,Function,Array,RegExp,Date</p>
+<p>原始值与引用值的区别：</p>
+<ul>
+<li>原始值存储在栈中，引用值存储在堆中 </li>
+<li>原始值是以值的拷贝方式进行赋值，值是不可变的；引用值是以引用的拷贝方式进行赋值，值是可变的 </li>
+<li>原始值的比较是值的比较，引用值的比较是引用的比较（比较引用的是否为同一对象）</li>
+</ul>
+<h3 id="2-判断数据类型的常用方法"><a href="#2-判断数据类型的常用方法" class="headerlink" title="2.判断数据类型的常用方法"></a>2.判断数据类型的常用方法</h3><p>首先定义一些数据</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> bool = <span class="literal">true</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;abc&#x27;</span></span><br><span class="line"><span class="keyword">var</span> und = <span class="literal">undefined</span></span><br><span class="line"><span class="keyword">var</span> nul = <span class="literal">null</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">name</span>:<span class="string">&#x27;haoxl&#x27;</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;</span><br><span class="line"><span class="keyword">var</span> fun = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">&#x27;I am a function&#x27;</span>)&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="使用typeof"><a href="#使用typeof" class="headerlink" title="使用typeof"></a>使用typeof</h4><p>typeof 进行类型判断的有:undeinfed,string,number,boolean,object,symbol,function</p>
+<p>typeof 对 null 返回 ‘object’，对正则，数组返回 ‘object’</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> bool); <span class="comment">//boolean</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> num);<span class="comment">//number</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> str);<span class="comment">//string</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> und);<span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> nul);<span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> arr);<span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> obj);<span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> fun);<span class="comment">//function</span></span><br></pre></td></tr></table></figure>
+<p>由结果可知typeof可以测试出<code>number</code>、<code>string</code>、<code>boolean</code>、<code>undefined</code>及<code>function</code>，而对于<code>null</code>及数组、对象，typeof均检测出为object，不能进一步判断它们的类型。</p>
+<h4 id="使用instanceof"><a href="#使用instanceof" class="headerlink" title="使用instanceof"></a>使用instanceof</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(bool <span class="keyword">instanceof</span> <span class="built_in">Boolean</span>);<span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(num <span class="keyword">instanceof</span> <span class="built_in">Number</span>);<span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(str <span class="keyword">instanceof</span> <span class="built_in">String</span>);<span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(und <span class="keyword">instanceof</span> <span class="built_in">Object</span>);<span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(nul <span class="keyword">instanceof</span> <span class="built_in">Object</span>);<span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(obj <span class="keyword">instanceof</span> <span class="built_in">Object</span>);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(fun <span class="keyword">instanceof</span> <span class="built_in">Function</span>);<span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bool2 = <span class="keyword">new</span> <span class="built_in">Boolean</span>()</span><br><span class="line"><span class="built_in">console</span>.log(bool2 <span class="keyword">instanceof</span> <span class="built_in">Boolean</span>);<span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num2 = <span class="keyword">new</span> <span class="built_in">Number</span>()</span><br><span class="line"><span class="built_in">console</span>.log(num2 <span class="keyword">instanceof</span> <span class="built_in">Number</span>);<span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str2 = <span class="keyword">new</span> <span class="built_in">String</span>()</span><br><span class="line"><span class="built_in">console</span>.log(str2 <span class="keyword">instanceof</span> <span class="built_in">String</span>);<span class="comment">//  true</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> per = <span class="keyword">new</span> Person()</span><br><span class="line"><span class="built_in">console</span>.log(per <span class="keyword">instanceof</span> Person);<span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Student.prototype = <span class="keyword">new</span> Person()</span><br><span class="line"><span class="keyword">var</span> haoxl = <span class="keyword">new</span> Student()</span><br><span class="line"><span class="built_in">console</span>.log(haoxl <span class="keyword">instanceof</span> Student);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(haoxl <span class="keyword">instanceof</span> Person);<span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>从结果中看出instanceof不能区别undefined和null，而且对于基本类型如果不是用new声明的则也测试不出来，对于是使用new声明的类型，它还可以检测出多层继承关系</p>
+<h3 id="Object-prototype-toString-call"><a href="#Object-prototype-toString-call" class="headerlink" title="Object.prototype.toString.call()"></a>Object.prototype.toString.call()</h3><p>在任何值上调用 Object 原生的 toString() 方法，都会返回一个 [object NativeConstructorName] 格式的字符串。每个类在内部都有一个 [[Class]] 属性，这个属性中就指定了上述字符串中的构造函数名。<br>但是它<strong>不能检测非原生构造函数的构造函数名</strong>。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(bool));<span class="comment">//[object Boolean]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(num));<span class="comment">//[object Number]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(str));<span class="comment">//[object String]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(und));<span class="comment">//[object Undefined]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(nul));<span class="comment">//[object Null]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(arr));<span class="comment">//[object Array]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(obj));<span class="comment">//[object Object]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(fun));<span class="comment">//[object Function]</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Student.prototype = <span class="keyword">new</span> Person()</span><br><span class="line"><span class="keyword">var</span> haoxl = <span class="keyword">new</span> Student()</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(haoxl));<span class="comment">//[object Object]</span></span><br></pre></td></tr></table></figure>
+<p>原理(摘自高级程序设计3)：在任何值上调用 Object 原生的 toString() 方法，都会返回一个 [object NativeConstructorName] 格式的字符串。每个类在内部都有一个 [[Class]] 属性，这个属性中就指定了上述字符串中的构造函数名。<br>但是它不能检测非原生构造函数的构造函数名。</p>
+<h3 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(bool.constructor === <span class="built_in">Boolean</span>);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(num.constructor === <span class="built_in">Number</span>);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(str.constructor === <span class="built_in">String</span>);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.constructor === <span class="built_in">Array</span>);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.constructor === <span class="built_in">Object</span>);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(fun.constructor === <span class="built_in">Function</span>);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(haoxl.constructor === Student);<span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(haoxl.constructor === Person);<span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p><strong>undefined和null没有contructor属性</strong></p>
+<p>指向该对象实例的<code>__proto__.constructor</code>。</p>
+<p>constructor不能判断undefined和null，并且使用它是不安全的，因为contructor的指向是可以改变的</p>
+<h3 id="3-类数组和数组的区别与转换"><a href="#3-类数组和数组的区别与转换" class="headerlink" title="3. 类数组和数组的区别与转换"></a>3. 类数组和数组的区别与转换</h3><p>类数组对象，如 arguments 对象、NodeList 对象等，类数组对象有length属性，可以通过数组下标取值，但是类数组对象不能调用数组原型上的方法。</p>
+<p>怎么把类数组对象转换成数组？</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.slice.call(NodeList, <span class="number">0</span>)</span><br><span class="line"><span class="built_in">Array</span>.from(NodeList)</span><br><span class="line"><span class="keyword">var</span> <span class="keyword">new</span> = [...NodeList]</span><br></pre></td></tr></table></figure>
+<h3 id="4-数组，String-Math常见的-API"><a href="#4-数组，String-Math常见的-API" class="headerlink" title="4. 数组，String,Math常见的 API"></a>4. 数组，String,Math常见的 API</h3><p>改变数组本身的方法：</p>
+<ul>
+<li>fill(value, start, end):将数组start到end的值用value填充 </li>
+<li>pop </li>
+<li>push </li>
+<li>reverse </li>
+<li>shift </li>
+<li>unshift </li>
+<li>sort </li>
+<li>splice</li>
+</ul>
+<p>不改变自身的方法：</p>
+<ul>
+<li>concat</li>
+<li>includes(valueToFind, index)</li>
+<li>join</li>
+<li>slice</li>
+<li>indexOf</li>
+<li>lastIndexOf</li>
+</ul>
+<p>遍历方法：</p>
+<ul>
+<li>every</li>
+<li>some</li>
+<li>map</li>
+<li>redeuce</li>
+<li>forEach</li>
+<li>filter</li>
+<li>find:找到第一个满足测试函数的元素并返回那个元素的值</li>
+<li>findIndex</li>
+</ul>
+<h3 id="2-String"><a href="#2-String" class="headerlink" title="2. String"></a>2. String</h3><ul>
+<li>substring </li>
+<li>substr </li>
+<li>slice </li>
+<li>indexOf </li>
+<li>lastIndexOf </li>
+<li>charAt: 以索引方式返回字符 </li>
+<li>charCodeAt </li>
+<li>concat:连接字符串 </li>
+<li>trim </li>
+<li>toLowerCase </li>
+<li>toUpperCase </li>
+<li><strong>match()</strong>:接受一个正则，返回匹配到的结果数组 </li>
+<li>search():接受一个正则，返回第一个匹配的索引 </li>
+<li><strong>replace()</strong>:第一个参数为字符串或者正则，第二个参数为字符串或者函数 </li>
+<li><strong>split()</strong> </li>
+</ul>
+<p>ES6扩展</p>
+<ul>
+<li>padStart():第一参数指定字符串的最小长度，第二个参数是用来补全的字符串；省略第二个字符串会用空格来补全，两者最常用的 就是为数值补全指定位数或者格式化字符串 </li>
+<li>endStart() </li>
+<li>includes() </li>
+<li>startsWith() </li>
+<li>endsWith() </li>
+<li>repeat()</li>
+</ul>
+<h3 id="2-Math"><a href="#2-Math" class="headerlink" title="2. Math"></a>2. Math</h3><ul>
+<li>random() 返回 0-1的随机数 </li>
+<li>min，max </li>
+<li>ceil:向上舍入，大于它的最小整数 </li>
+<li>floor:向下舍入，小于它的最大整数 </li>
+<li>round:四舍五入 </li>
+<li>log，abs，exp，pow，sqrt</li>
+</ul>
+<h3 id="5-bind-call-apply的区别"><a href="#5-bind-call-apply的区别" class="headerlink" title="5. bind,call,apply的区别"></a>5. bind,call,apply的区别</h3><ol>
+<li>当我们使用一个函数需要改变<code>this</code>指向的时候才会用到<code>call,apply,</code>bind` </li>
+<li>如果你要传递的参数不多，则可以使用<code>fn.call(thisObj, arg1, arg2 ...)</code> </li>
+<li>如果你要传递的参数很多，则可以用数组将参数整理好调用<code>fn.apply(thisObj, [arg1, arg2 ...])</code> </li>
+<li>如果你想生成一个新的函数长期绑定某个函数给某个对象使用，则可以使用<code>const newFn = fn.bind(thisObj); newFn(arg1, arg2...)</code> </li>
+<li>call，apply，bind 不传参数自动绑定在 window</li>
+</ol>
+<h3 id="6-new的原理"><a href="#6-new的原理" class="headerlink" title="6. new的原理"></a>6. new的原理</h3><p>new 大概会执行以下四个步骤：</p>
+<ul>
+<li>创建一个空对象 </li>
+<li>将空对象的原型链连接到另一个对象 </li>
+<li>执行构造函数中的代码并绑定 this 到这个对象 </li>
+<li>如函数没有返回值，则返回该对象 </li>
+</ul>
+<p>自己实现一个 _new(Constructor,…args):</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_new</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="comment">// 参数为 对象A，属性</span></span><br><span class="line"></span><br><span class="line">     <span class="comment">// 1.创建一个空对象</span></span><br><span class="line">     <span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 2.将该空对象的原型链连接到传入的对象</span></span><br><span class="line">     <span class="keyword">let</span> [Con, ...args] = <span class="built_in">arguments</span></span><br><span class="line">     obj.__proto__ = Con.prototype</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 3.执行函数并绑定 this</span></span><br><span class="line">     <span class="keyword">let</span> res = Con.apply(obj, args)</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 4.如果函数有返回值并且为object，则返回函数的返回值，否则返回obj</span></span><br><span class="line">     <span class="keyword">return</span> res <span class="keyword">instanceof</span> <span class="built_in">Object</span> ? res : obj</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">     <span class="built_in">this</span>.name = name</span><br><span class="line">     <span class="built_in">this</span>.age = age</span><br><span class="line">   &#125;</span><br><span class="line">   Person.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> <span class="built_in">this</span>.name</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">let</span> p = _new(Person, <span class="string">&quot;sillywa&quot;</span>, <span class="number">23</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="7-如何正确判断this"><a href="#7-如何正确判断this" class="headerlink" title="7. 如何正确判断this"></a>7. 如何正确判断this</h3><h3 id="8-闭包及其作用"><a href="#8-闭包及其作用" class="headerlink" title="8. 闭包及其作用"></a>8. 闭包及其作用</h3><p>一个函数有权访问另一个函数作用域中的变量，就形成闭包。</p>
+<p>闭包可以用来隐藏变量，避免全局污染。也可以用于读取函数内部的变量。</p>
+<p>缺点是：导致变量不会被垃圾回收机制回收，造成内存消耗。</p>
+<h3 id="9-原型和原型链"><a href="#9-原型和原型链" class="headerlink" title="9. 原型和原型链"></a>9. 原型和原型链</h3><p>无论什么时候，只要创建了一个函数，就会根据为该<strong>函数创建一个 prototype 属性</strong>，这个属性<strong>指向函数的原型对象</strong>。在默认情况下，所有原型对象都会获得一个 <strong>constructor</strong>，该属性是一个<strong>指向 prototype 属性所在函数</strong>的指针。</p>
+<p><strong>原型链规定了对象如何查找属性</strong>，对于一个对象来说，如果它本身没有某个属性，则会沿着原型链一直向上查找，知道找到属性或者查找完整个原型链。</p>
+<p>原型链是实现继承的主要方法，其基本思想是利用原型链让一个引用类型继承另一个引用类型的属性和方法。</p>
+<h3 id="10-继承的实现方式及比较"><a href="#10-继承的实现方式及比较" class="headerlink" title="10. 继承的实现方式及比较"></a>10. 继承的实现方式及比较</h3><h4 id="1-简单的原型继承"><a href="#1-简单的原型继承" class="headerlink" title="1. 简单的原型继承"></a>1. 简单的原型继承</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = <span class="string">&quot;super&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="comment">// 利用原型链实现继承</span></span><br><span class="line">SubType.prototype = <span class="keyword">new</span> SuperType()</span><br><span class="line"><span class="keyword">var</span> instance1 = <span class="keyword">new</span> SubType()</span><br><span class="line"><span class="built_in">console</span>.log(instance1.name) <span class="comment">// super</span></span><br></pre></td></tr></table></figure>
+<p>简单的原型继承存在以下两个问题：</p>
+<ul>
+<li>包含引用类型值的原型属性会被所有实例共享，在通过原型来实现继承时，原型实际上也会变成另一个类型的实例。于是，原先的实例属性也就变成了现在的原型属性。思考一下代码：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.names = [<span class="string">&quot;sillywa&quot;</span>, <span class="string">&quot;xinda&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 利用原型链实现继承</span></span><br><span class="line">SubType.prototype = <span class="keyword">new</span> SuperType()</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> instance1 = <span class="keyword">new</span> SubType()</span><br><span class="line">instance1.names.push(<span class="string">&quot;hahah&quot;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(instance1.names)    <span class="comment">// [&quot;sillywa&quot;, &quot;xinda&quot;, &quot;hahah&quot;]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> instance2 = <span class="keyword">new</span> SubType()</span><br><span class="line"><span class="built_in">console</span>.log(instance2.names)    <span class="comment">// [&quot;sillywa&quot;, &quot;xinda&quot;, &quot;hahah&quot;]</span></span><br></pre></td></tr></table></figure>
+<p>这个例子中，SuperType构造函数定义了一个 names 属性，该属性为一个数组（引用类型）。SuperType的每个实例都会有自己的 names 属性。当 SubType 通过原型链继承了 SuperType 之后，SubType.prototype 就变成了 SuperType 的一个实例，因此它也拥有自己的 names 属性——就跟专门创建了一个 SubType.prototype.names 属性一样。但是结果就是 SubType 的所有实例共享一个 names 属性。</p>
+<ul>
+<li>简单的原型继承的另一个问题是：在创建子类类型的实例时，不能向超类类型的构造函数中传递参数。因此在继承上我们经常不会单独使用原型继承。</li>
+</ul>
+<h4 id="2-借用构造函数继承（经典继承）"><a href="#2-借用构造函数继承（经典继承）" class="headerlink" title="2. 借用构造函数继承（经典继承）"></a>2. 借用构造函数继承（经典继承）</h4><p>这种继承的思想是在子类的构造函数内部调用超类的构造函数，该方法使用 call() 和 apply() 方法在新创建的对象上执行构造函数。如下所示：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">age, name</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.colors = [<span class="string">&quot;blue&quot;</span>, <span class="string">&quot;red&quot;</span>]</span><br><span class="line">    <span class="built_in">this</span>.age = age</span><br><span class="line">    <span class="built_in">this</span>.name = name</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    SuperType.call(<span class="built_in">this</span>, ...arguments)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> instance1 = <span class="keyword">new</span> SubType(<span class="number">23</span>, <span class="string">&quot;sillywa&quot;</span>)</span><br><span class="line">instance1.colors.push(<span class="string">&quot;yellow&quot;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(instance1.colors, instance1.name)<span class="comment">//[&quot;blue&quot;, &quot;red&quot;,&quot;yellow&quot;],sillywa</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> instance2 = <span class="keyword">new</span> SubType(<span class="number">12</span>, <span class="string">&quot;xinda&quot;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(instance2.colors, instance2.name)<span class="comment">//[&quot;blue&quot;, &quot;red&quot;],xinda</span></span><br></pre></td></tr></table></figure>
+<p>借用构造函数继承也有一些缺点，比如方法都只能在构造函数中定义，没有办法实现方法的复用</p>
+<h4 id="3-组合式继承"><a href="#3-组合式继承" class="headerlink" title="3. 组合式继承"></a>3. 组合式继承</h4><p>组合继承结合了原型继承和借用构造函数继承的优点，其背后的思想是，使用原型链实现对原型方法的继承，使用构造函数实现对实例属性的继承。这样，既通过在原型上定义方法实现了函数的服用，又通过构造函数实现了每个实例都有自己的属性。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name</span><br><span class="line">    <span class="built_in">this</span>.colors = [<span class="string">&quot;red&quot;</span>, <span class="string">&quot;yellow&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 方法写在原型上</span></span><br><span class="line">SuperType.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 通过 构造函数继承属性</span></span><br><span class="line">    SuperType.call(<span class="built_in">this</span>, name)</span><br><span class="line">    <span class="built_in">this</span>.age = age</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 通过原型继承方法</span></span><br><span class="line">SubType.prototype = <span class="keyword">new</span> SuperType()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 重写了 SubType 的 prototype 属性，因此其 constructor 也被重写了，需要手动修正</span></span><br><span class="line">SubType.prototype.constructor = SubType</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义子类自己的方法</span></span><br><span class="line">SubType.prototype.sayAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.age</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> instance1 = <span class="keyword">new</span> SubType(<span class="string">&quot;sillywa&quot;</span>, <span class="number">23</span>)</span><br><span class="line">instance1.colors.push(<span class="string">&quot;blue&quot;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(instance1.colors)        <span class="comment">//[&quot;red&quot;, &quot;yellow&quot;, &quot;blue&quot;]</span></span><br><span class="line"><span class="built_in">console</span>.log(instance1.sayName())    <span class="comment">// sillywa</span></span><br><span class="line"><span class="built_in">console</span>.log(instance1.sayAge())        <span class="comment">// 23</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> instance2 = <span class="keyword">new</span> SubType(<span class="string">&quot;xinda&quot;</span>, <span class="number">90</span>)</span><br><span class="line"><span class="built_in">console</span>.log(instance2.colors)        <span class="comment">// [&quot;red&quot;, &quot;yellow&quot;]</span></span><br><span class="line"><span class="built_in">console</span>.log(instance2.sayName())    <span class="comment">// xinda</span></span><br><span class="line"><span class="built_in">console</span>.log(instance2.sayAge())        <span class="comment">// 90</span></span><br></pre></td></tr></table></figure>
+<p>组合继承避免了原型链和借用构造函数的缺陷，融合了它们的优点，成为 JavaScript中最常用的继承模式。</p>
+<h4 id="4-原型式继承"><a href="#4-原型式继承" class="headerlink" title="4. 原型式继承"></a>4. 原型式继承</h4><p>借助原型可以通过已有的对象创建新对象，同时还不必因此创建自定义类型。为达到这个目的，可以定义如下函数：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">create</span>(<span class="params">o</span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">    F.prototype = o</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> F()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 object 函数内部，首先创建了一个临时性构造函数 F，将 F 的 prototype 属性指向传入的对象 o，并返回 F 的一个实例，则该实例继承 o 的所有属性和方法。从本质上讲，create() 对传入的对象执行了一次浅复制。看以下代码</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    name: <span class="string">&quot;sillywa&quot;</span>,</span><br><span class="line">    firends: [<span class="string">&quot;Johe&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person1 = create(person)</span><br><span class="line">person1.name = <span class="string">&quot;coder&quot;</span></span><br><span class="line">person1.firends.push(<span class="string">&quot;Kobe&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person2 = create(person)</span><br><span class="line">person2.firends.push(<span class="string">&quot;Cury&quot;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(person2.firends)    <span class="comment">// [&quot;Johe&quot;, &quot;Kobe&quot;, &quot;Cury&quot;]</span></span><br></pre></td></tr></table></figure>
+<p>ES5 通过新增 Object.create() 方法规范化了原型式继承。这个方法接受两个参数：一个用作新对象原型的对象和（可选的）一个为新对象定义额外属性的对象。在传入一个参数的情况下，Object.create() 与 create() 方法的行为相同。</p>
+<p>Object.create() 方法的第二个参数与 Object.defineProterties() 方法的第二个参数格式相同：每个属性都是通过自己的描述符定义的。以这种方式指定的任何属性都会覆盖原型对象上的同名属性。例如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    name: <span class="string">&quot;sillywa&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="built_in">Object</span>.create(person, &#123;</span><br><span class="line">    name: &#123;</span><br><span class="line">        value: <span class="string">&quot;John&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(person1.name)        <span class="comment">// John</span></span><br></pre></td></tr></table></figure>
+<h4 id="5-寄生式继承"><a href="#5-寄生式继承" class="headerlink" title="5. 寄生式继承"></a>5. 寄生式继承</h4><p>寄生式继承的思路与继承构造函数和工厂模式类似，即创建一个仅用于封装继承过程的函数，该函数在内部以某种方式来增强对象，最后再像真正地是它做了所有工作一样返回对象。以下是寄生式继承的代码:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createAnother</span>(<span class="params">original</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> clone = <span class="built_in">Object</span>.create(original)</span><br><span class="line">    clone.sayHi = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;Hi&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> clone</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="6-组合寄生式继承"><a href="#6-组合寄生式继承" class="headerlink" title="6. 组合寄生式继承"></a>6. 组合寄生式继承</h4><p>前面说过，组合继承是 JavaScript最常用的继承模式，不过它也有自己的缺点，组合继承最大的问题是，无论什么情况下都会调用两次超类的构造函数。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name</span><br><span class="line">    <span class="built_in">this</span>.colors = []</span><br><span class="line">&#125;</span><br><span class="line">SuperType.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 第一次调用父类的构造函数</span></span><br><span class="line">    SuperType.call(<span class="built_in">this</span>,name)</span><br><span class="line">    <span class="built_in">this</span>.age = age</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 第二次调用父类的构造函数</span></span><br><span class="line">SubType.prototype = <span class="keyword">new</span> SuperType()</span><br><span class="line">SubType.prototype.constructor = SubType</span><br><span class="line">SubType.prototype.sayAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.age</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>组合寄生式继承就是为了解决这一问题，将第二次调用构造函数改为使用 Object.create() 函数来实现：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name</span><br><span class="line">    <span class="built_in">this</span>.colors = []</span><br><span class="line">&#125;</span><br><span class="line">SuperType.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 第一次调用父类的构造函数</span></span><br><span class="line">    SuperType.call(<span class="built_in">this</span>,name)</span><br><span class="line">    <span class="built_in">this</span>.age = age</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 关键代码</span></span><br><span class="line">SubType.prototype = <span class="built_in">Object</span>.create(SuperType.prototype)</span><br><span class="line">SubType.prototype.constructor = SubType</span><br><span class="line">SubType.prototype.sayAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.age</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="11-对象的深拷贝与浅拷贝"><a href="#11-对象的深拷贝与浅拷贝" class="headerlink" title="11. 对象的深拷贝与浅拷贝"></a>11. 对象的深拷贝与浅拷贝</h3><h3 id="12-防抖和节流"><a href="#12-防抖和节流" class="headerlink" title="12. 防抖和节流"></a>12. 防抖和节流</h3><h4 id="1-防抖"><a href="#1-防抖" class="headerlink" title="1. 防抖"></a>1. 防抖</h4><p>函数在指定时间内只会触发一次，具体实现方法：</p>
+<ul>
+<li>第一次触发函数的时候，延迟delay时间执行，如果在delay时间段内再次触发该函数，则重新开始计时 </li>
+<li>如果delay时间段内没有触发该函数，则执行该函数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, delay</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(timer) &#123;</span><br><span class="line">            <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">        &#125;</span><br><span class="line">        timer = <span class="built_in">setTimeout</span>(fn, delay)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-节流"><a href="#2-节流" class="headerlink" title="2. 节流"></a>2. 节流</h3><p>防抖的问题是，在短时间内不断触发事件，回调函数永远不会执行。</p>
+<p>节流的思想：在短时间内不断触发事件，回调函数只会在指定间隔时间内执行。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn, delay</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(timer) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">            fn()</span><br><span class="line">            timer = <span class="literal">null</span></span><br><span class="line">        &#125;, delay)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="13-作用域和作用域链、执行期上下文"><a href="#13-作用域和作用域链、执行期上下文" class="headerlink" title="13. 作用域和作用域链、执行期上下文"></a>13. 作用域和作用域链、执行期上下文</h3><p>作用域是一套<strong>规则</strong>，用于确定<strong>在何处以及如何查找变量</strong>。作用域共有两种主要的工作模式，<strong>词法作用域</strong>和动态作用域，大多数编程语言采用词法作用域，<a href>JavaScript</a>也是基于词法作用域的。词法作用域意味着<strong>作用域是由书写代码时函数声明的位置来决定的</strong>。</p>
+<p>在<a href>JavaScript</a>每个函数有自己的函数作用域，当执行流进入到一个函数的时候，函数的环境就会被推入到一个<strong>环境栈</strong>中。而在函数执行之后，栈将其环境弹出。</p>
+<p>当代码在一个环境中执行的时候，会<strong>为该环境创建一个作用域链</strong>，<strong>保证对执行环境有权访问的所有变量的有序访问</strong>。作用域链的最<a href>前端</a>始终是当前执行代码所在环境，在变量查找的过程中，会沿着作用域链一层一层向上查找，直到找到变量或者找不到变量。</p>
+<h3 id="14-javascript判断空对象的五种方法"><a href="#14-javascript判断空对象的五种方法" class="headerlink" title="14:javascript判断空对象的五种方法"></a>14:javascript判断空对象的五种方法</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arrobj = &#123;<span class="attr">name</span>:<span class="string">&#x27;caiyong&#x27;</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="1：遍历"><a href="#1：遍历" class="headerlink" title="1：遍历"></a>1：遍历</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> fn = <span class="function">(<span class="params">d</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> d)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2：Object-getOwnPropertyNames"><a href="#2：Object-getOwnPropertyNames" class="headerlink" title="2：Object.getOwnPropertyNames"></a>2：Object.getOwnPropertyNames</h4><p>获取对象中的全部属性名，存到一个数组中</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> n = <span class="built_in">Object</span>.getOwnPropertyNames(arrobj)</span><br><span class="line"><span class="built_in">console</span>.log(n)   <span class="comment">//[&quot;name&quot;,&quot;age&quot;]，再判断数组长度即可判断对象是否为空</span></span><br></pre></td></tr></table></figure>
+<h4 id="3：Object-keys-obj"><a href="#3：Object-keys-obj" class="headerlink" title="3：Object.keys(obj)"></a>3：Object.keys(obj)</h4><p>获取给定对象的所有可枚举属性的字符串数组</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> n = <span class="built_in">Object</span>.keys(arrobj)</span><br><span class="line"><span class="built_in">console</span>.log(n)   <span class="comment">//[&quot;name&quot;,&quot;age&quot;]，再判断数组长度即可判断对象是否为空</span></span><br></pre></td></tr></table></figure>
+<h4 id="4：hasOwnProperty"><a href="#4：hasOwnProperty" class="headerlink" title="4：hasOwnProperty"></a>4：hasOwnProperty</h4><p>检测属性是否存在对象实例中，存在返回true,否则为false</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> fn2 = <span class="function">(<span class="params">d</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> d)&#123;</span><br><span class="line">        <span class="keyword">if</span>(d.hasOwnProperty(key))&#123;</span><br><span class="line">             <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;      </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(fn2(arrobj))  <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+<h4 id="5：利用JSON-stringify"><a href="#5：利用JSON-stringify" class="headerlink" title="5：利用JSON.stringify()"></a>5：利用JSON.stringify()</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(arrobj) === <span class="string">&#x27;&#123;&#125;&#x27;</span>) <span class="comment">//权宜之计，能判断，一般不用</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="15-DOM"><a href="#15-DOM" class="headerlink" title="15. DOM"></a>15. DOM</h3><p>把文档当成一个对象来看待。DOM简单理解为处理文档（HTML/xml)的接口，可以改变网页内容，结构和样式,使Javascript能够操作HTML</p>
+<h4 id="1：DOM树"><a href="#1：DOM树" class="headerlink" title="1：DOM树"></a>1：DOM树</h4><p><img src="/2021/01/07/Javascript%E9%87%8D%E7%82%B9%E6%80%BB%E7%BB%93%20/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210922165056325.png" alt="image-20210922165056325"></p>
+<p>DOM把以上内容都看做是对象</p>
+<h4 id="2：获取元素"><a href="#2：获取元素" class="headerlink" title="2：获取元素"></a>2：获取元素</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">&#x27;idname&#x27;</span>) <span class="comment">//返回的是一个元素对象,没有这个元素返回为null</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;TagName&#x27;</span>)<span class="comment">//返回的是获取过来的元素对象(整个页面所有选到的标签)的集合(可以加限定来选择，比如element.getElementsByTagName(&#x27;标签名&#x27;)，以伪数组的形式存储，可以通过遍历来操作，如果没有这个元素返回为空的伪数组</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.getElementByClassName(<span class="string">&#x27;类名&#x27;</span>) <span class="comment">//HTML5新增，返回伪数组集合</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">&#x27;选择器&#x27;</span>)   <span class="comment">//HTML5新增，返回指定选择器的第一个元素对象，切记里面的选择器需要加对应的选择器符号</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;选择器&#x27;</span>)  <span class="comment">////HTML5新增，返回指定选择器的所有元素对象集合</span></span><br></pre></td></tr></table></figure>
+<h4 id="3：事件"><a href="#3：事件" class="headerlink" title="3：事件"></a>3：事件</h4><p>1：获取到元素后需要满足一些条件才能触发，简单理解就是 触发—&gt;响应机制。事件三要素，1：事件源，事件类型，事件处理程序。</p>
+<p><img src="/2021/01/07/Javascript%E9%87%8D%E7%82%B9%E6%80%BB%E7%BB%93%20/Users/蔡勇\AppData\Local\YNote\data\weixinobU7VjpC-h3Mctkd_ThKO0j7_UwY\8a77c274951e41f9aeff7853931ca3a3\clipboard.png" alt="img"></p>
+<p>2：执行事件步骤</p>
+<ul>
+<li>获取事件源</li>
+<li>注册事件（绑定事件，例如上面的btn.onclick,onclick为常见的鼠标事件，鼠标点击左键触发，还有很多鼠标事件）</li>
+<li>添加事件处理程序（采取函数赋值形式）</li>
+</ul>
+<p>3：addEventListener和onClick()的区别（注册事件两种方式）</p>
+<p>普通的事件就是直接触发事件，同一时间只能指向唯一对象，所以会被覆盖掉：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">&quot;111&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line">btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">&quot;222&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// &quot;222&quot;</span></span><br></pre></td></tr></table></figure>
+<p>事件绑定就是对于一个可以绑定的事件对象，进行多次绑定事件都能运行：(IE9以前使用attchEvent()代替，它的参数只有addEventListener的前面两个)</p>
+<p>addEventListener(type,listener,[useCapture]),三个参数：</p>
+<ul>
+<li><p>type：事件类型字符串，如click,mouseover</p>
+</li>
+<li><p>listener:事件处理函数，事件发生时，会调用该监听函数</p>
+</li>
+<li><p>useCapture：可选参数，是一个布尔值，默认为false，指定事件是否在捕获或冒泡阶段执行，</p>
+<p>true - 事件句柄在捕获阶段执行</p>
+<p>false- false- 默认。事件句柄在冒泡阶段执行</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">btn.addEventListener(<span class="string">&quot;click&quot;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">&quot;111&quot;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">btn.addEventListener(<span class="string">&quot;click&quot;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">&quot;222&quot;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// &quot;111&quot;  &quot;222&quot;</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>onclick 同一时间只能指向唯一对象 </li>
+<li>addEventListener可以给一个事件注册多个listener </li>
+<li>addEventListener对任何DOM都都是有效的，而onclick仅限于HTML </li>
+<li>addEventListener可以控制事件的触发阶段:</li>
+</ol>
+<p>4：删除事件（事件解绑）</p>
+<ul>
+<li>1：传统，例div.onclick = null</li>
+<li>2:removeEventListener</li>
+</ul>
+<h4 id="4：操作元素"><a href="#4：操作元素" class="headerlink" title="4：操作元素"></a>4：操作元素</h4><p>1：修改元素内容</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">element.innerText =          <span class="comment">//innerText不识别HTML标签，去除标签内的空格和换行，直接进行显示   (非标准，使用较少)</span></span><br><span class="line">element.innerHTML             <span class="comment">//innerHTML识别HTML标签，保留标签内的空格和换行，进行显示(w3c标准，使用较多)</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2021/01/07/Javascript%E9%87%8D%E7%82%B9%E6%80%BB%E7%BB%93%20/Users/蔡勇\AppData\Local\YNote\data\weixinobU7VjpC-h3Mctkd_ThKO0j7_UwY\550a9a346db148ecb2a5e3d95668ed09\clipboard.png" alt="img"></p>
+<p>2：修改元素属性</p>
+<p>3：修改表单属性(disabled,type,value,checked,selected)</p>
+<p>4:修改样式属性</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">element.style  <span class="comment">//行内样式操作，css权重较高,样式修改量小的情况下使用</span></span><br><span class="line">div.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.style.backgroundColor = <span class="string">&#x27;purple&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">element.className <span class="comment">//类名样式操作，样式修改量大的情况下使用</span></span><br><span class="line">div.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.className = <span class="string">&#x27;change&#x27;</span>  <span class="comment">//change类名里面有需要改变的的样式定义</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/01/07/Javascript%E9%87%8D%E7%82%B9%E6%80%BB%E7%BB%93%20/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210923094133599.png" alt="image-20210923094133599"></p>
+<h4 id="5：自定义属性"><a href="#5：自定义属性" class="headerlink" title="5：自定义属性"></a>5：自定义属性</h4><p><strong>规范</strong>:H5规定自定义属性 data- 开头作为属性名并赋值，如data-index</p>
+<p>1：获取自定义属性值(element.getAttribute)</p>
+<ul>
+<li>element.属性，获取元素本身自带的属性</li>
+<li>element.getAttribute(‘属性’)，主要获取自定义的属性</li>
+</ul>
+<p><img src="/2021/01/07/Javascript%E9%87%8D%E7%82%B9%E6%80%BB%E7%BB%93%20/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210923095506525.png" alt="image-20210923095506525"></p>
+<p>2:设置、移除自定义属性值</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">div.setAttribute(<span class="string">&#x27;index&#x27;</span>,<span class="number">2</span>)  </span><br><span class="line">div.removeAttribute(<span class="string">&#x27;index&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="6-节点操作"><a href="#6-节点操作" class="headerlink" title="6:节点操作"></a>6:节点操作</h4><p>详解见有道云笔记</p>
+<h4 id="7：总结"><a href="#7：总结" class="headerlink" title="7：总结"></a>7：总结</h4><ul>
+<li>创建 document.write,innerHTML,createElement</li>
+<li>增:appendChild,insertBefore</li>
+<li>删：removeChild</li>
+<li>改：<img src="/2021/01/07/Javascript%E9%87%8D%E7%82%B9%E6%80%BB%E7%BB%93%20/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210923113101266.png" alt="image-20210923113101266"></li>
+<li>查：<img src="/2021/01/07/Javascript%E9%87%8D%E7%82%B9%E6%80%BB%E7%BB%93%20/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210923113152235.png" alt="image-20210923113152235"></li>
+<li>属性操作：<img src="/2021/01/07/Javascript%E9%87%8D%E7%82%B9%E6%80%BB%E7%BB%93%20/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210923113259348.png" alt="image-20210923113259348"></li>
+</ul>
+<h4 id="8-DOM事件流"><a href="#8-DOM事件流" class="headerlink" title="8:DOM事件流"></a>8:DOM事件流</h4><ul>
+<li>事件捕获阶段—&gt;目标阶段—&gt;冒泡阶段，js代码只能执行捕获或者冒泡其中的一个阶段。</li>
+<li>事件对象（见有道云）</li>
+<li>阻止事件冒泡：标准写法：利用事件对象里面的stopPropagation()方法</li>
+<li>事件委托（代理，委派）</li>
+</ul>
+<h3 id="16：BOM"><a href="#16：BOM" class="headerlink" title="16：BOM"></a>16：BOM</h3><p>把浏览器当成一个对象来看待，顶级对象为window（详情见有道云笔记）</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;lalala&quot;</span>)</span><br><span class="line">&#125;,<span class="number">2000</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="17：立即执行函数"><a href="#17：立即执行函数" class="headerlink" title="17：立即执行函数"></a>17：立即执行函数</h3><p>立即执行函数，不需要调用，立马能够自己执行的函数，最大的作用就是独立创建了一个作用域，执行完就会释放，所以两个立即执行函数里面所有的变量都是局部变量，不会有命名冲突的情况</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;) ()    <span class="comment">//第一种写法,第二个小括号可以看作是调用函数，且可以传递参数</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a+b) <span class="comment">//5</span></span><br><span class="line">&#125;) (<span class="number">2</span>,<span class="number">3</span>);   <span class="comment">//两个立即执行函数之间用;隔开</span></span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">sum</span> (<span class="params">a,b</span>)</span>&#123;  <span class="comment">//也可以给立即执行函数起名字</span></span><br><span class="line">    <span class="built_in">console</span>.log(a+b) <span class="comment">//5</span></span><br><span class="line">&#125;) (<span class="number">2</span>,<span class="number">3</span>)  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125; ())    <span class="comment">//第二种写法</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Javascript积累</category>
+      </categories>
+      <tags>
+        <tag>Javascript积累</tag>
+      </tags>
   </entry>
   <entry>
-    <title>九月一号开始</title>
-    <url>/2021/09/01/%E4%B9%9D%E6%9C%88%E4%B8%80%E5%8F%B7%E5%BC%80%E5%A7%8B/</url>
-    <content><![CDATA[]]></content>
+    <title>this指向解析</title>
+    <url>/2021/08/13/this%E8%A7%A3%E6%9E%90/</url>
+    <content><![CDATA[<p>this 是 JavaScript 中最复杂的机制之一。它是一个很特别的关键字，被自动定义在所有函数的作用域中。与<a href="https://www.sillywa.com/2018/12/07/%E8%AF%8D%E6%B3%95%E4%BD%9C%E7%94%A8%E5%9F%9F/">词法作用域</a>不同，this 是在运行时进行绑定的，并不是在编写时，它的上下文取决于函数调用的各种条件。this的绑定和函数声明的位置没有任何关系，只取决于函数的调用方式。</p>
+<a id="more"></a>
+
+<h2 id="0-关于-this"><a href="#0-关于-this" class="headerlink" title="0.关于 this"></a>0.关于 this</h2><p>关于 this 主要有两种误解，一种是认为 this 指向函数自身，另一种是 this 指向函数的作用域。</p>
+<h3 id="0-1-指向自身"><a href="#0-1-指向自身" class="headerlink" title="0.1 指向自身"></a>0.1 指向自身</h3><p>思考以下代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;foo: &quot;</span> + num);</span><br><span class="line">    <span class="comment">// 记录 foo 被调用的次数</span></span><br><span class="line">    <span class="built_in">this</span>.count++;</span><br><span class="line">&#125;</span><br><span class="line">foo.count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    foo(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// foo被调用了多少次？</span></span><br><span class="line"><span class="built_in">console</span>.log(foo.count); <span class="comment">// 0 -- 为什么？</span></span><br></pre></td></tr></table></figure>
+<p>执行 foo.count = 0 时，的确向函数对象 foo 添加了一个属性 count。但是函数内部代码 this.count 中的 this 并不是指向那个函数对象，所以虽然属性名相同，跟对象却并不相同。</p>
+<p>实际上，如果深入探索的话，就会发现这段代码在无意中创建了一个全局变量 count，它的值为 NaN。</p>
+<p>如果要让上面的代码实现我们的功能，我们可以用 foo 来代替 this 来引用函数对象：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;foo: &quot;</span> + num);</span><br><span class="line">    <span class="comment">// 记录 foo 被调用的次数</span></span><br><span class="line">    foo.count++;</span><br><span class="line">&#125;</span><br><span class="line">foo.count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    foo(i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(foo.count);</span><br></pre></td></tr></table></figure>
+<p>另一种方法是强制 this 指向 foo 函数对象：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;foo: &quot;</span> + num);</span><br><span class="line">    <span class="comment">// 记录 foo 被调用的次数</span></span><br><span class="line">    <span class="built_in">this</span>.count++;</span><br><span class="line">&#125;</span><br><span class="line">foo.count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    foo.call(foo, i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(foo.count); <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+<h3 id="0-2-它的作用域"><a href="#0-2-它的作用域" class="headerlink" title="0.2 它的作用域"></a>0.2 它的作用域</h3><p>第二种常见的误解是，this指向函数的作用域。需要明确的是，this在任何情况下都不指向函数的词法作用域。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">this</span>.bar();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line">foo();  <span class="comment">//ReferenceError: a in not defined</span></span><br></pre></td></tr></table></figure>
+<p><strong>因此在学习 this 之前，我们必须明白，this 既不指向函数自身也不指向函数的词法作用域，this 实际上是在函数被调用时发生绑定的。</strong></p>
+<p>this的指向在函数定义时是确定不了的，只有函数执行的时候才能确定this到底指向谁，一般情况下this的最终指向是那个调用它的对象</p>
+<p>在理解this的绑定规则之前，首先要理解调用位置，即函数在代码中被调用的位置。最重要的是要分析调用栈，我们关心的调用位置就是当前正在执行的函数的前一个调用中。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">baz</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 当前调用栈是： baz</span></span><br><span class="line">    <span class="comment">// 因此调用位置是全局作用域</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;baz&quot;</span>);</span><br><span class="line">    bar();  <span class="comment">// &lt;-- bar的调用位置</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 当前调用栈是：baz-&gt;bar</span></span><br><span class="line">    <span class="comment">// 因此调用位置在 baz 中</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;bar&quot;</span>);</span><br><span class="line">    foo();  <span class="comment">// &lt;-- foo的调用位置</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 当前调用栈是：baz-&gt;bar-&gt;foo</span></span><br><span class="line">    <span class="comment">// 因此调用位置在 bar 中</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;foo&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">baz();  <span class="comment">// &lt;-- baz的调用位置</span></span><br></pre></td></tr></table></figure>
+<p>注意我们是如何分析出真正的调用位置的，因为它决定了 this 的绑定。</p>
+<h2 id="2-绑定规则"><a href="#2-绑定规则" class="headerlink" title="2.绑定规则"></a>2.绑定规则</h2><p>我们首先需要找到调用位置，然后判断需要应用下面四条规则中的哪一条。首先会介绍四条规则，然后说明多条规则都可以使用时的优先级。</p>
+<h3 id="2-1-默认绑定"><a href="#2-1-默认绑定" class="headerlink" title="2.1 默认绑定"></a>2.1 默认绑定</h3><p>默认绑定就是简单的独立函数调用，可以把这条规则看作是无法应用其它规则时的默认规则。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">foo();  <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p>在代码中，foo是直接使用不带任何修饰的函数引用进行调用的，因此只能使用默认绑定。在非严格默认下，默认绑定的 this 指向全局对象，严格模式下为 undefined。</p>
+<h3 id="2-2-隐式绑定"><a href="#2-2-隐式绑定" class="headerlink" title="2.2 隐式绑定"></a>2.2 隐式绑定</h3><p>另一条需要考虑的规则是调用位置是否有上下文对象，或者说是否被某个对象拥有或者包含。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a: <span class="number">2</span>,</span><br><span class="line">    foo: foo</span><br><span class="line">&#125;;</span><br><span class="line">obj.foo();  <span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+<p>当 foo 被调用时，它前面加上了对 obj 的引用。当函数引用有上下文对象时，隐式绑定的规则会把函数调用中的 this 绑定到这个上下文对象。</p>
+<p>对象属性链中只有上一层或者说最后一层在调用位置中起作用。举例来说：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;</span><br><span class="line">    a: <span class="number">42</span>,</span><br><span class="line">    foo: foo</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">    a: <span class="number">2</span>,</span><br><span class="line">    obj2: obj2</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj1.obj2.foo();    <span class="comment">// 42</span></span><br></pre></td></tr></table></figure>
+<p><strong><em>隐式丢失\</em></strong></p>
+<p>一个最常见的 this 绑定问题就是被隐式绑定的函数会丢失绑定对象，也就是说它会应用默认绑定，从而把 this 绑定到全局对象或者 undefined 上。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a: <span class="number">2</span>,</span><br><span class="line">    foo: foo</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> bar = obj.foo;  <span class="comment">// 函数别名！</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="string">&quot;oops,global&quot;</span>;</span><br><span class="line"></span><br><span class="line">bar();  <span class="comment">// &quot;oops,global&quot;</span></span><br></pre></td></tr></table></figure>
+<p>虽然 bar 是 obj.foo 的一个引用，但是实际上它引用的是 foo 函数本身，因此此时的 bar() 其实是一个不带任何修饰符的函数调用，因此应用了默认绑定。</p>
+<p>一种更微妙、更常见并且更出乎意料的情况发生在传入回调函数时：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doFoo</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// fn 其实引用的是 foo</span></span><br><span class="line">    fn();   <span class="comment">// &lt;--调用位置</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a: <span class="number">2</span>,</span><br><span class="line">    foo: foo</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> a = <span class="string">&quot;oops,global&quot;</span>;</span><br><span class="line"></span><br><span class="line">doFoo(obj.foo); <span class="comment">// &quot;oops,global&quot;</span></span><br></pre></td></tr></table></figure>
+<p>传递参数其实就是一种隐式赋值，因此我们传入函数时也会被隐式赋值。</p>
+<p>同样把函数传入语言内置的函数结果也是一样的。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a: <span class="number">2</span>,</span><br><span class="line">    foo: foo</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> a = <span class="string">&quot;oops,global&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(obj.foo, <span class="number">1000</span>);  <span class="comment">// &quot;oops,global&quot;</span></span><br></pre></td></tr></table></figure>
+<p>经过上面的分析我们知道，回调函数丢失 this 绑定是非常常见的。</p>
+<h3 id="2-3-显示绑定"><a href="#2-3-显示绑定" class="headerlink" title="2.3 显示绑定"></a>2.3 显示绑定</h3><p>就像我们刚才看到的那样，在分析隐式绑定时，我们必须在一个对象内部包含一个指向函数的属性，并通过这个属性间接引用函数，从而把 this 间接绑定到对象上。</p>
+<p>如果我们不想在对象内部包含函数的引用，而想在某个对象上强制调用函数，这是我们需要使用函数的 call() 和 apply() 方法。</p>
+<p>它们的第一个参数是一个对象，是给 this 准备的，接着在调用函数时将其绑定到 this。因为可以直接指定 this 的绑定对象，因此称之为显示绑定。 示绑定的另一种情况就是硬绑定。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">sfunction <span class="function"><span class="title">foo</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a: <span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    foo.call(obj);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">setTimeout</span>(bar, <span class="number">1000</span>);  <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 硬绑定的 bar 不可能再修改它的 this</span></span><br><span class="line">bar.call(<span class="built_in">window</span>);   <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p>因为我们把 bar 函数内部调用了 foo，而 foo 的 this 已经被强制绑定在 obj 上，因此无论之后如何调用 bar 函数，它总会手动在 obj 上调用 foo。</p>
+<p>硬绑定的另一种应用场景就是创建一个包裹函数，负责接收参数并返回值：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">something</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a, something);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.a + something;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a: <span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> foo.apply(obj, <span class="built_in">arguments</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = bar(<span class="number">3</span>); <span class="comment">//2 3</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+<p>另一种方法是创建一个可以重复使用的辅助函数：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">something</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a, something);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.a + something;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a: <span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bind</span>(<span class="params">fn, obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> fn.apply(obj, <span class="built_in">arguments</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bar = bind(foo, obj);</span><br><span class="line"><span class="keyword">var</span> b = bar(<span class="number">3</span>); <span class="comment">// 2 3</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+<p>ES5 中提供了 Function.prototype.bind 函数，它的用法如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">unction <span class="function"><span class="title">foo</span>(<span class="params">something</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a, something);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.a + something;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a: <span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> bar = foo.bind(obj);</span><br><span class="line"><span class="keyword">var</span> b = bar(<span class="number">3</span>); <span class="comment">// 2 3</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+<p>bind() 会返回一个硬编码的新函数，它会把你指定的参数设置为 this 的上下文并调用原始函数。</p>
+<h3 id="2-4-new绑定"><a href="#2-4-new绑定" class="headerlink" title="2.4 new绑定"></a>2.4 new绑定</h3><p>在传统的面向对象的语言中，“构造函数”是类中的一些的特殊方法，使用 new 初始化类时会调用类中的构造函数。Javascript 中也有一个 new 操作符，但是 Javascript 中 new 的机制实际上和面向对象的语言完全不同。在 Javascript 中，构造函数只是一些使用 new 操作符时被调用的函数。它们并不属于某个类，也不会实例化一个类。</p>
+<p>使用 new 来调用函数，或者说发生构造函数调用时，会自动执行下面的操作：</p>
+<ol>
+<li>创建一个全新的对象。</li>
+<li>这个对象会被执行 [[Prototype]] 连接。</li>
+<li>这个新对象会被绑定到函数调用的 this。</li>
+<li>如果函数没有返回其它对象，那么 new 表达式中的函数调用会自动返回这个新对象。</li>
+</ol>
+<p>思考下面代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.a = a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> bar = <span class="keyword">new</span> foo(<span class="number">2</span>);</span><br><span class="line"><span class="built_in">console</span>.log(bar.a); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p>使用 new 来调用 foo() 时，我们会构造一个新对象并把它绑定到 foo() 调用中的 this 上。 new 是最后一种可以影响函数调用时 this 绑定行为的方法，我们称之为 new 绑定。</p>
+<h2 id="3-判断-this"><a href="#3-判断-this" class="headerlink" title="3.判断 this"></a>3.判断 this</h2><p>学习了上面四条规则，我们可以根据下面的顺序来判断 this 绑定的对象：</p>
+<ol>
+<li>函数是否在 new 中调用（new 绑定）？如果是的话，this 绑定的是新创建的对象。</li>
+<li>函数是否通过 call、apply 显示绑定或者硬绑定？如果是的话，this 绑定的是指定对象。</li>
+<li>函数是否在某个上下文中调用（隐式绑定）？如果是的话，this 绑定的是那个上下文对象。</li>
+<li>如果都不是，使用默认绑定。严格模式下绑定到 undefined，否则绑定到全局对象。</li>
+</ol>
+<h2 id="4-绑定例外"><a href="#4-绑定例外" class="headerlink" title="4.绑定例外"></a>4.绑定例外</h2><p>在某些场景下 this 的绑定行为会出乎意料，你认为应该应用其它绑定规则时，实际上应用的可能是默认绑定的规则。</p>
+<h3 id="4-1-被忽略的-this"><a href="#4-1-被忽略的-this" class="headerlink" title="4.1 被忽略的 this"></a>4.1 被忽略的 this</h3><p>如果把 null 或者 undefined 作为 this 的绑定对象传入 call、apply 或者 bind，这些值在调用时会被忽略，实际应用的是默认绑定的规则。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">foo.call(<span class="literal">null</span>); <span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+<p>一种常见的做法是使用 apply(…) 来“展开”一个数组，并当作参数传入一个函数。类似地，bind(…)可以对参数进行柯里化，这种方法有时非常有用：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a ,b</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;a: &quot;</span> + a + <span class="string">&quot;, b: &quot;</span> + b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 把数组展开成参数</span></span><br><span class="line">foo.apply(<span class="literal">null</span>, [<span class="number">2</span>, <span class="number">3</span>]);    <span class="comment">//a: 2, b: 3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 bind 进行柯里化</span></span><br><span class="line"><span class="keyword">var</span> bar = foo.bind(<span class="literal">null</span>, <span class="number">2</span>);</span><br><span class="line">bar(<span class="number">3</span>); <span class="comment">// a: 2, b: 3</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-2-间接引用"><a href="#4-2-间接引用" class="headerlink" title="4.2 间接引用"></a>4.2 间接引用</h3><p>另一个需要注意的是你可能有意或者无意地创建一个函数的”间接引用“，在这种情况下，调用这个函数会应用默认绑定规则。</p>
+<p>间接引用最容易在赋值的时候发生：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">var</span> o = &#123;<span class="attr">a</span>: <span class="number">3</span>, <span class="attr">foo</span>: foo&#125;;</span><br><span class="line"><span class="keyword">var</span> p = &#123;<span class="attr">a</span>: <span class="number">4</span>&#125;;</span><br><span class="line">o.foo();    <span class="comment">// 3</span></span><br><span class="line">(p.foo = o.foo)(); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p>赋值表达式 p.foo = o.foo 的返回值是目标函数的引用，因此调用位置是 foo() 而不是 p.foo() 或者 o.foo()。</p>
+<h2 id="5-this-词法"><a href="#5-this-词法" class="headerlink" title="5.this 词法"></a>5.this 词法</h2><p>我们之前介绍的四条规则已经可以包含所有的正常函数。但是在 ES6 中介绍了一种无法使用这些规则的特殊类型函数：箭头函数。</p>
+<p>箭头函数不使用 this 的四种标准规则，而是根据外层作用域来决定 this。</p>
+<p>我们来看看箭头函数的词法作用域：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="params">a</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// this继承自 foo()</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">    a: <span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;</span><br><span class="line">    a: <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> bar = foo.call(obj1);</span><br><span class="line">bar.call(obj2); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p>对比正常的函数：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">    a: <span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;</span><br><span class="line">    a: <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> bar = foo.call(obj1);</span><br><span class="line">bar.call(obj2); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<p>foo() 内部的箭头函数会捕获调用时 foo() 的 this。由于 foo() 的 this 绑定到 obj1，bar 引用箭头函数的 this 也会绑定到 obj1，箭头函数的绑定无法修改。（new 也不行）</p>
+<p>箭头函数最常用于回调函数，例如事件处理器或者定时器：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 这里的 this 在词法上继承 foo</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a: <span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line">foo.call(obj);  <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<h4 id="1-全局作用域或者普通函数中this指向全局对象window-注意定时器里面的和立即执行函数this指向window"><a href="#1-全局作用域或者普通函数中this指向全局对象window-注意定时器里面的和立即执行函数this指向window" class="headerlink" title="1:全局作用域或者普通函数中this指向全局对象window(注意定时器里面的和立即执行函数this指向window)"></a>1:全局作用域或者普通函数中this指向全局对象window(注意定时器里面的和立即执行函数this指向window)</h4><p>当函数不作为对象的属性被调用，而是以普通函数的方式，this总是指向全局对象（在浏览器中，通常是Window对象）</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.name = <span class="string">&#x27;caiyong&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line">getName(); <span class="comment">// caiyong</span></span><br></pre></td></tr></table></figure>
+<p>或者下面这段迷惑性的代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.name = <span class="string">&#x27;老王&#x27;</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name: <span class="string">&#x27;yuguang&#x27;</span>,</span><br><span class="line">    getName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> getNew = obj.getName;</span><br><span class="line">getNew(); <span class="comment">// 老王</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>而在ES5的严格模式下，this被规定为不会指向全局对象，而是undefined</p>
+<h4 id="2：作为对象方法调用"><a href="#2：作为对象方法调用" class="headerlink" title="2：作为对象方法调用"></a>2：作为对象方法调用</h4><p>当函数作为对象的方法被调用时，this指向该对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a: <span class="string">&#x27;yuguang&#x27;</span>,</span><br><span class="line">    getName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span> === obj);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">obj.getName(); <span class="comment">// true yuguang</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="3-构造函数this指向构造函数的实例"><a href="#3-构造函数this指向构造函数的实例" class="headerlink" title="3:构造函数this指向构造函数的实例"></a>3:构造函数this指向构造函数的实例</h4><p>除了一些内置函数，大部分Js中的函数都可以成为构造器，它们与普通函数没什么不同</p>
+<p><strong>构造器</strong>和<strong>普通函数</strong>的区别在于<code>被调用的方式</code>：<br>当new运算符调用函数时，总是返回一个对象，this通常也指向这个对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> MyClass = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = <span class="string">&#x27;yuguang&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> MyClass();</span><br><span class="line">obj.name; <span class="comment">// yuguang</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//但是，如果显式的返回了一个object对象，那么此次运算结果最终会返回这个对象</span></span><br><span class="line"><span class="keyword">var</span> MyClass = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        name: <span class="number">2</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> myClass = <span class="keyword">new</span> MyClass(); </span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;myClass:&#x27;</span>, myClass); <span class="comment">// &#123; name: 2&#125;</span></span><br></pre></td></tr></table></figure>
+<p>只要构造器不显式的返回任何数据，或者返回非对象类型的数据，就不会造成上述问题。</p>
+<h4 id="4、call或apply调用"><a href="#4、call或apply调用" class="headerlink" title="4、call或apply调用"></a>4、call或apply调用</h4><p>跟普通的函数调用相比，用call和apply可以动态的改变函数的this</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">    name: <span class="number">1</span>,</span><br><span class="line">    getName: <span class="function"><span class="keyword">function</span> (<span class="params">num = <span class="string">&#x27;&#x27;</span></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.name + num;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;</span><br><span class="line">    name: <span class="number">2</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 可以理解成在 obj2的作用域下调用了 obj1.getName()函数</span></span><br><span class="line"><span class="built_in">console</span>.log(obj1.getName()); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(obj1.getName.call(obj2, <span class="number">2</span>)); <span class="comment">// 2 + 2 = 4</span></span><br><span class="line"><span class="built_in">console</span>.log(obj1.getName.apply(obj2, [<span class="number">2</span>])); <span class="comment">// 2 + 2 = 4</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>5.箭头函数</strong></p>
+<p>箭头函数不会创建自己的this，它只会从自己的作用域链的上一层继承this。</p>
+<p>因此，在下面的代码中，传递给<code>getVal</code>函数内的this并不是调用者自身，而是外部的this～</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.val = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    val: <span class="number">1</span>,</span><br><span class="line">    getVal: <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.val);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.getVal(); <span class="comment">// 2</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="常见的坑"><a href="#常见的坑" class="headerlink" title="常见的坑"></a>常见的坑</h3><p>就像标题一样，有的时候<code>this</code>会指向undefined</p>
+<p><strong>情况一</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name: <span class="string">&#x27;1&#x27;</span>,</span><br><span class="line">    getName: <span class="function"><span class="keyword">function</span> (<span class="params">params</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">obj.getName();</span><br><span class="line"><span class="keyword">var</span> getName2 = obj.getName;</span><br><span class="line">getName2();</span><br></pre></td></tr></table></figure>
+<p>这个时候，<code>getName2()</code>作为普通函数被调用时，this指向全局对象——window。</p>
+<p><strong>情况二</strong></p>
+<p>当我们希望自己封装Dom方法，来精简代码时：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> getDomById = <span class="function"><span class="keyword">function</span> (<span class="params">id</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">document</span>.getElementById(id);</span><br><span class="line">&#125;;</span><br><span class="line">getDomById(<span class="string">&#x27;div1&#x27;</span>) <span class="comment">//dom节点</span></span><br></pre></td></tr></table></figure>
+<p>那么我们看看这么写行不行？</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> getDomById = <span class="built_in">document</span>.getElementById</span><br><span class="line">getDomById(<span class="string">&#x27;div1&#x27;</span>) <span class="comment">// Uncaught TypeError: Illegal invocation(非法调用)</span></span><br></pre></td></tr></table></figure>
+<p>这是因为:</p>
+<ul>
+<li>当我们去调用<code>document</code>对象的方法时，方法内的this指向<code>document</code>。</li>
+<li>当我们用<code>getId</code>应用<code>document</code>内的方法，再以普通函数的方式调用，函数内容的<code>this</code>就指向了全局对象。</li>
+</ul>
+<p><strong>利用call和apply修正情况二</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById = (<span class="function"><span class="keyword">function</span> (<span class="params">func</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> func.call(<span class="built_in">document</span>, ...arguments)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)(<span class="built_in">document</span>.getElementById) </span><br><span class="line"><span class="comment">// 利用立即执行函数将document保存在作用域中</span></span><br></pre></td></tr></table></figure>
+<h2 id="二、call和apply"><a href="#二、call和apply" class="headerlink" title="二、call和apply"></a>二、call和apply</h2><p><img src="https://img-blog.csdnimg.cn/20200602153648211.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2piajY1Njg4Mzl6,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h4 id="1-call和apply区别"><a href="#1-call和apply区别" class="headerlink" title="1.call和apply区别"></a>1.call和apply区别</h4><p>先来看区别，是因为它们几乎没有区别，下文代码实例call和apply都可以轻易的切换。</p>
+<p>当它们被设计出来时要做到的事情一摸一样，唯一的区别就在于传参的格式不一样</p>
+<p>​      apply接受两个参数</p>
+<ul>
+<li><p>第一个参数指定了函数体内this对象的指向</p>
+</li>
+<li><p>第二个参数为一个带下标的参数集合（可以是数组或者类数组）</p>
+<p>call接受的参数不固定</p>
+</li>
+<li><p>第一个参数指定了函数体内this对象的指向</p>
+</li>
+<li><p>第二个参数及以后为函数调用的参数</p>
+</li>
+</ul>
+<p>因为在所有（非箭头）函数中都可以通过arguments对象在函数中引用函数的参数。此对象包含传递给函数的每个参数，它本身就是一个类数组，我们apply在实际使用中更常见一些。</p>
+<p>call是包装在apply上面的语法糖，如果我们明确的知道参数数量，并且希望展示它们，可以使用call。</p>
+<p>当使用call或者apply的时候，如果我们传入的第一个参数为null，函数体内的this会默认指向宿主对象，在浏览器中则是window。</p>
+<p>借用其他对象的方法,我们可以直接传null来代替任意对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.max.apply(<span class="literal">null</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>])</span><br></pre></td></tr></table></figure>
+<h4 id="2-call和apply能做什么？"><a href="#2-call和apply能做什么？" class="headerlink" title="2.call和apply能做什么？"></a>2.call和apply能做什么？</h4><p>使用一个指定的 this 值和单独给出的一个或多个参数来调用一个函数</p>
+<ul>
+<li>调用构造函数来实现继承;</li>
+<li>调用函数并且指定上下文的 <code>this</code>;</li>
+<li>调用函数并且不指定第一个参数;</li>
+</ul>
+<p><strong>1.调用构造函数来实现继承</strong></p>
+<p>通过“借用”的方式来达到继承的效果：</p>
+<p><strong>2.调用函数并且指定上下文的 this</strong></p>
+<p>此时this被指向了obj</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.id + <span class="string">&#x27;:&#x27;</span> + <span class="built_in">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    id: <span class="number">1</span>,</span><br><span class="line">    name: <span class="string">&#x27;yuguang&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line">showName.call(obj)</span><br></pre></td></tr></table></figure>
+<p><strong>3.使用call单纯的调用某个函数</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.max.apply(<span class="literal">null</span>, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">10</span>,<span class="number">4</span>,<span class="number">5</span>]); <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
+<h4 id="四、bind-thisArg-arg1-arg2-…"><a href="#四、bind-thisArg-arg1-arg2-…" class="headerlink" title="四、bind(thisArg,arg1,arg2,…)"></a>四、bind(thisArg,arg1,arg2,…)</h4><p>使用最多的，如果我们有函数不需要立即执行，但是 又想改变此函数内部的this指向时用bind</p>
+<p><img src="/2021/08/13/this%E8%A7%A3%E6%9E%90/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914213854266.png" alt="image-20210914213854266"></p>
+<p>（不会调用原来的函数，可以改变原来函数内部的this指向，返回的是原函数改变this之后产生的新函数,接受过来，在调用即可得到想要的效果） </p>
+<p>bind() 方法创建一个新的函数，在 bind() 被调用时，这个新函数的 this 被指定为 bind() 的第一个参数，而其余参数将作为新函数的参数，供调用时使用 </p>
+<p>提到了<strong>call</strong>和<strong>apply</strong>，就绕不开<strong>bind</strong>。我们试着来模拟一个bind方法，以便加深我们的认识</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _this = <span class="built_in">this</span>; <span class="comment">// 保存调用bind的函数</span></span><br><span class="line">    <span class="keyword">var</span> obj = obj || <span class="built_in">window</span>; <span class="comment">// 确定被指向的this，如果obj为空，执行作用域的this就需要顶上喽</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> _this.apply(obj, <span class="built_in">arguments</span>); <span class="comment">// 修正this的指向</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name: <span class="number">1</span>,</span><br><span class="line">    getName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">&#125;.bind(obj); <span class="comment">//如果只是单纯的bind(obj)不会返回结果，这里是将bind传给func</span></span><br><span class="line">func(); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Javascript积累</category>
+      </categories>
+      <tags>
+        <tag>Javascript积累</tag>
+      </tags>
   </entry>
 </search>
