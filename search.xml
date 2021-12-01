@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
-    <url>/2021/10/18/%E6%96%B9%E6%B3%95%E7%A7%AF%E7%B4%AF/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>CSS积累(1)</title>
-    <url>/2021/09/01/9-1/</url>
-    <content><![CDATA[<p><img src="/2021/09/01/9-1/post-banner.png"></p>
+    <url>/2021/09/01/CSS%E7%A7%AF%E7%B4%AF(1)/</url>
+    <content><![CDATA[<p><img src="/2021/09/01/CSS%E7%A7%AF%E7%B4%AF(1)/post-banner.png"></p>
 <a id="more"></a>
 
 <h4 id="1：CSS引入方式及三大特性"><a href="#1：CSS引入方式及三大特性" class="headerlink" title="1：CSS引入方式及三大特性"></a>1：CSS引入方式及三大特性</h4><ul>
@@ -36,15 +31,15 @@
 <li><p>伪类选择器</p>
 <p>链接伪类,写时需要遵循下面顺序</p>
 </li>
-<li><p><img src="/2021/09/01/9-1/1.png" alt="image-20210905144646750"></p>
+<li><p><img src="/2021/09/01/CSS%E7%A7%AF%E7%B4%AF(1)/1.png" alt="image-20210905144646750"></p>
 </li>
 <li><p>:focus伪类选择器，选取获得焦点的表单元素，焦点就是光标，一般input类表单元素才能获取，所以这个选择器主要针对表单元素来说</p>
 </li>
 <li><p>CSS3新增选择器</p>
 <p><strong>1：属性选择器</strong>–可以根据元素特定属性来选择属性</p>
-<p><img src="/2021/09/01/9-1/2.png" alt="image-20210908162853518"></p>
+<p><img src="/2021/09/01/CSS%E7%A7%AF%E7%B4%AF(1)/2.png" alt="image-20210908162853518"></p>
 <p> <strong>2：结构伪类选择器</strong></p>
-<p><img src="/2021/09/01/9-1/3.png" alt="image-20210908163817908"></p>
+<p><img src="/2021/09/01/CSS%E7%A7%AF%E7%B4%AF(1)/3.png" alt="image-20210908163817908"></p>
 <p> 3：伪元素选择器:: before<code>,</code>::after</p>
 <p>原理：before和after创建一个元素，但是属于行内元素(想要设置大小，需要显示模式转换）。新建的这个元素在文档树中找不到，所以称为伪元素</p>
 <ul>
@@ -107,7 +102,7 @@
 <ul>
 <li>5,双伪元素清除,腾讯常用</li>
 </ul>
-<p><img src="/2021/09/01/9-1/5.png" alt="image-20210906214138751"></p>
+<p><img src="/2021/09/01/CSS%E7%A7%AF%E7%B4%AF(1)/5.png" alt="image-20210906214138751"></p>
 <ul>
 <li>通过BFC的方式清除浮动<ul>
 <li>position:absolute/fixed，不为 static 或 relative </li>
@@ -131,7 +126,7 @@
 <p>2：如果它的父元素没有设置定位，那么就得看它父元素的父元素是否有设置定位，如果还是没有就继续向更高层的祖先元素类推，总之它的定位就是相对于设置了除static定位之外的定位的第一个祖先元素，如果所有的祖先元素都没有以上三种定位中的其中一种定位，那么它就会相对于文档body来定位（并非相对于浏览器窗口，相对于窗口定位的是fixed）。</p>
 <p>3：子绝父相–1：子级绝对定位，不会占有位置，可以放到父盒子里面的任何一个位置，不会影响其他的兄弟盒子。2：父盒子需要加定位限制子盒子在父盒子内显示，父盒子布局时，需要占有位置，所以只能是相对定位</p>
 <p>4：绝对定位盒子居中算法：</p>
-<p><img src="/2021/09/01/9-1/6.png" alt="image-20210907152756088"></p>
+<p><img src="/2021/09/01/CSS%E7%A7%AF%E7%B4%AF(1)/6.png" alt="image-20210907152756088"></p>
 </li>
 <li><p><strong>fixed固定定位</strong></p>
 <p>1：以浏览器可视窗口为参照点移动元素</p>
@@ -140,22 +135,30 @@
 <p>4：不再占有原来的位置</p>
 </li>
 <li><p><strong>sticky粘性定位</strong>（可以认为是相对定位和固定定位的混合）</p>
-<p><img src="/2021/09/01/9-1/7.png" alt="image-20210907152316883"></p>
+</li>
+<li><p><a href="https://juejin.cn/post/6844904087486464007#heading-2">https://juejin.cn/post/6844904087486464007#heading-2</a></p>
+<p><img src="/2021/09/01/CSS%E7%A7%AF%E7%B4%AF(1)/7.png" alt="image-20210907152316883"></p>
+<p>用处：网站滚动到一定高度的时候，让一部分内容作为navbar，也就是置顶显示</p>
+<p>position的含义是指定位类型，取值类型可以有：static、relative、absolute、fixed、inherit和sticky，这里sticky是CSS3新发布的一个属性</p>
+<h3 id="position-sticky-使用条件"><a href="#position-sticky-使用条件" class="headerlink" title="position:sticky 使用条件"></a>position:sticky 使用条件</h3><h4 id="1-父元素不能overflow-hidden或者overflow-auto属性。"><a href="#1-父元素不能overflow-hidden或者overflow-auto属性。" class="headerlink" title="1.父元素不能overflow:hidden或者overflow:auto属性。"></a>1.父元素不能overflow:hidden或者overflow:auto属性。</h4><h4 id="2-必须指定top、bottom、left、right4个值之一，否则只会处于相对定位"><a href="#2-必须指定top、bottom、left、right4个值之一，否则只会处于相对定位" class="headerlink" title="2.必须指定top、bottom、left、right4个值之一，否则只会处于相对定位"></a>2.必须指定top、bottom、left、right4个值之一，否则只会处于相对定位</h4><h4 id="3-父元素的高度不能低于sticky元素的高度"><a href="#3-父元素的高度不能低于sticky元素的高度" class="headerlink" title="3.父元素的高度不能低于sticky元素的高度"></a>3.父元素的高度不能低于sticky元素的高度</h4><h4 id="4、sticky元素仅在其父元素内生效"><a href="#4、sticky元素仅在其父元素内生效" class="headerlink" title="4、sticky元素仅在其父元素内生效"></a>4、sticky元素仅在其父元素内生效</h4><h2 id="使用sticky容易遇到的“坑”"><a href="#使用sticky容易遇到的“坑”" class="headerlink" title="使用sticky容易遇到的“坑”"></a>使用sticky容易遇到的“坑”</h2><ul>
+<li>1.sticky不会触发BFC，</li>
+<li>2.z-index无效，</li>
+<li>3.当父元素的height：100%时，页面滑动到一定高度之后sticky属性会失效。</li>
+<li>4.IE低版本不支持sticky的使用</li>
+</ul>
+<h4 id="7：flex布局（弹性布局）和传统布局"><a href="#7：flex布局（弹性布局）和传统布局" class="headerlink" title="7：flex布局（弹性布局）和传统布局"></a>7：flex布局（弹性布局）和传统布局</h4><p>适合 Flexbox 的场景是，你不是在布局一个精确到像素级别的 Flex 项目，只是想让这些项目一个个挨着、体面的排列好就行了。另一个会遇到的场景是项目折行</p>
+<p><img src="/2021/09/01/CSS%E7%A7%AF%E7%B4%AF(1)/8.png" alt="image-20210907164844457"></p>
+<ul>
+<li><p><strong>flex布局原理，通过给父盒子添加flex属性，来控制子盒子的位置和排列方式</strong></p>
+</li>
+<li><p>采用flex布局的元素，称为flex<strong>容器</strong>，它所有的子元素称为flex<strong>项目</strong></p>
 </li>
 </ul>
 </li>
 </ul>
-<pre><code>#### 7：flex布局（弹性布局）和传统布局
-
-![image-20210907164844457](./9-1/8.png)
-
-* **flex布局原理，通过给父盒子添加flex属性，来控制子盒子的位置和排列方式**
-
-* 采用flex布局的元素，称为flex**容器**，它所有的子元素称为flex**项目**
-
-
-
-  ##### 7.1容器的属性
+</li>
+</ul>
+<pre><code>  ##### 7.1容器的属性
 
 1:**flex-direction **(设置主轴)
 
@@ -219,169 +222,28 @@ flex-flow属性是flex-deriction和flex-wrap属性的简写，默认值为[row n
 * align-self属性控制子项自己在侧轴上的排列方式
 
   <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span>&#123; <span class="attribute">align-self</span>: flex-start | flex-end | center | baseline | stretch &#125;</span><br></pre></td></tr></table></figure>
+
+* 当 flex 取值为一个非负数字，则该数字为 flex-grow 值，flex-shrink 取 1，flex-basis 取 0%，如下是等同的：
+
+  <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;<span class="attribute">flex</span>: <span class="number">1</span>;&#125;</span><br><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">    <span class="attribute">flex-grow</span>: <span class="number">1</span>;</span><br><span class="line">    <span class="attribute">flex-shrink</span>: <span class="number">1</span>;</span><br><span class="line">    <span class="attribute">flex-basis</span>: <span class="number">0%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+* 当 flex 取值为 auto，则计算值为 1 1 auto，如下是等同的
+
+  <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;<span class="attribute">flex</span>: auto;&#125;</span><br><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">    <span class="attribute">flex-grow</span>: <span class="number">1</span>;</span><br><span class="line">    <span class="attribute">flex-shrink</span>: <span class="number">1</span>;</span><br><span class="line">    <span class="attribute">flex-basis</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 #### 8.CSS画三角形
 
 ​        我们往往只给border一个较小的宽度；然而这样的日常用让我们对border的形成方式产生误解，即认为border是由四个矩形边框拼接而成的,实际上，border是由三角形组合而成
 
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">40px</span> solid;</span><br><span class="line">    <span class="attribute">border-color</span>: transparent red transparent transparent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre>
-]]></content>
+<h4 id><a href="#" class="headerlink" title></a></h4>]]></content>
       <categories>
         <category>css积累</category>
       </categories>
       <tags>
         <tag>css积累</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>css积累(2)</title>
-    <url>/2021/09/10/9-10/</url>
-    <content><![CDATA[<p>css积累第二部分，持续更新</p>
- <a id="more"></a>
-
-<h4 id="1-px-em-rem-vw-vh的区别"><a href="#1-px-em-rem-vw-vh的区别" class="headerlink" title="1:px,em,rem,vw,vh的区别"></a>1:px,em,rem,vw,vh的区别</h4><ul>
-<li>px：像素px是相对于显示器屏幕分辨率而言的。</li>
-<li>em：相对于当前父元素的字体大小,比如父元素font-size:12px,子元素宽高10em,则子元素相当于10x12=120px</li>
-<li>rem(root em)：rem相对于根元素(html元素）设置字体大小，比如html元素，html {font-size:12px},子元素宽高10rem,则子元素相当于10x12=120px, 优点：就是可以通过修改html里面文字大小来改变页面中元素的大小，可以整体控制</li>
-<li>对于只需要适配少部分手机设备，且分辨率对页面影响不大的，使用px即可 </li>
-<li>对于需要适配各种移动设备，使用rem</li>
-<li><img src="/2021/09/10/9-10/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210910153354513.png" alt="image-20210910153354513"></li>
-</ul>
-<p>vh很少使用，宽高用vw就行，适用于移动端</p>
-<h4 id="2-媒体查询"><a href="#2-媒体查询" class="headerlink" title="2:媒体查询"></a>2:媒体查询</h4><p>css3新语法，@media可以针对不同的屏幕尺寸设置不同的样式,下面是基本语法</p>
-<p><img src="/2021/09/10/9-10/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210910165914644.png" alt="image-20210910165914644"></p>
-<p>mediatype:all(所有设备)||print(打印机)||scree(电脑屏幕，平板，手机)</p>
-<p>media feature:width,min-width,max-width</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">300px</span>) &#123;</span><br><span class="line">    <span class="selector-tag">body</span> &#123;</span><br><span class="line">        <span class="attribute">background-color</span>:lightblue;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="3：BFC与IFC"><a href="#3：BFC与IFC" class="headerlink" title="3：BFC与IFC"></a>3：BFC与IFC</h4><h4 id="4-圣杯布局与双飞翼布局"><a href="#4-圣杯布局与双飞翼布局" class="headerlink" title="4. 圣杯布局与双飞翼布局"></a>4. 圣杯布局与双飞翼布局</h4><p>圣杯布局与双飞翼布局是为了<strong>实现一个两侧固定宽度，中间自适应的三栏布局</strong>。两者需要遵循以下要点：</p>
-<ul>
-<li>两侧固定宽度，中间自适应 </li>
-<li>中间部分在DOM结构上优先，以便先行渲染 </li>
-<li>允许三列中的任意一列成为最高列 </li>
-<li>只需要使用一个额外的 div 标签 </li>
-</ul>
-<p>核心是左边的 div margin-left:-100%</p>
-<h4 id="5：Grid布局"><a href="#5：Grid布局" class="headerlink" title="5：Grid布局"></a>5：Grid布局</h4><p>Flex 布局是轴线布局，只能指定项目针对轴线的位置，可以看作是一维布局。</p>
-<p>Grid 布局则是将容器划分为 ”行“ 和 ”列“，产生单元格，然后指定项目)所在的单元格，可以看作是二维布局。</p>
-<h4 id="6：伪类和伪元素有什么不同"><a href="#6：伪类和伪元素有什么不同" class="headerlink" title="6：伪类和伪元素有什么不同"></a>6：伪类和伪元素有什么不同</h4><p><strong>伪类用于当已有元素处于的某个状态时，为其添加对应的样式，这个状态是根据用户行为而动态变化的</strong>，比如说，当用户悬停在指定的元素时，我们可以用:hover来描述这个元素的状态。虽然它和普通的css类相似，可以为已有的元素添加样式，但是<strong>它只有处于dom树无法描述的状态下才能为元素添加样式</strong>，所以将其称为伪类。</p>
-<p><strong>伪元素不是 DOM 中的真实元素，但是存在于最终的渲染树中，可以为其添加样式，比如说，我们可以通过：before来在一个元素前增加一些文本</strong>。</p>
-<h4 id="7-HTML5-新特性"><a href="#7-HTML5-新特性" class="headerlink" title="7. HTML5 新特性"></a>7. HTML5 新特性</h4><p>音频、视频、地理位置、localStorage、sessionStorage</p>
-]]></content>
-      <categories>
-        <category>css积累</category>
-      </categories>
-      <tags>
-        <tag>css积累</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>js基础积累(1)</title>
-    <url>/2021/09/02/9-2/</url>
-    <content><![CDATA[<p> 这里积累了js中比较重要的知识</p>
-<a id="more"></a>
-
-<h4 id="1：let、const和var的概念与区别"><a href="#1：let、const和var的概念与区别" class="headerlink" title="1：let、const和var的概念与区别"></a>1：let、const和var的概念与区别</h4><p>let，const声明的变量只在其所在的代码块内有效。let声明的变量可以进行修改，而 const 用于定义不可修改的常量。</p>
-<p>var不存在块级作用域。区别：</p>
-<ul>
-<li>let,const不存在变量提升，var会有变量提升。即let，const一定要先声明，后使用 </li>
-<li>如果区域块内存在 let 和 const命令，则这个区域块内对这些命令声明的变量从一开始就形成了封闭作用域。只要在声明前使用这些变量，就会报错。 </li>
-<li>let 不会成为 window 的属性</li>
-</ul>
-<h4 id="2-ES6中的类和对象"><a href="#2-ES6中的类和对象" class="headerlink" title="2:ES6中的类和对象"></a>2:ES6中的类和对象</h4><p>1：创建类：class name{},创建对象：var  pp = new name()，constructor方法是类的构造函数，用于传递参数，返回对象实例，类的共有属性放到constructor里面，constructor函数，只要new生成实例时，就会自动调用这个函数，如果我们不写这个函数，类也会自动调用这个函数，注意细节：类中所有函数不需要写function,多个函数方法之间不需要添加逗号分割，类名首字母大写</p>
-<p>2：继承（extends,super）</p>
-<ul>
-<li>super关键字可以访问和调用父类上的函数（可以是构造函数，也可以是父类的普通函数），调用了父类的constructor函数，将子类的数据传递给父类constructor函数，此时父类的其他函数就可以使用子类的数据，子类在构造函数中使用super，必须放到this前面（必须先调用父类的构造方法，再使用子类的构造方法）</li>
-</ul>
-<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210913181825655.png" alt="image-20210913181825655"></p>
-<ul>
-<li><p>ES6中没有变量提升，所以必须先定义类，才能通过类实例化对象。类中共有的属性和方法一定要加this使用</p>
-</li>
-<li><p>constructor里面的this 指向的事创建的实例对象，而方法里面的this指向的是这个方法的调用者</p>
-</li>
-</ul>
-<p>3:创建对象的方式</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> object() <span class="comment">//利用new Object()创建对象</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;  <span class="comment">//利用对象字面量创建对象</span></span><br><span class="line">             <span class="comment">//利用构造函数创建对象</span></span><br></pre></td></tr></table></figure>
-<h4 id="3：原型和原型链"><a href="#3：原型和原型链" class="headerlink" title="3：原型和原型链"></a>3：原型和原型链</h4><p>1:构造函数中如果有函数，那么每创建一个实例如果使用了这个函数，那么就会开辟一块内存来存放这个函数，那么就会导致创建的不同实例使用构造函数中的同一个函数时，开辟不同的内存，造成空间浪费。</p>
-<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914105527995.png" alt="image-20210914105527995"></p>
-<p>一般情况下，我们的公共属性定义到构造函数里面，公共的方法我们放到原型对象身上，就可以避免上述的空间浪费问题</p>
-<p>2:</p>
-<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914112046786.png" alt="image-20210914112046786"></p>
-<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914111820473.png" alt="image-20210914111820473"></p>
-<p>3:<img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914113319604.png" alt="image-20210914113319604"></p>
-<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914114109002.png" alt="image-20210914114109002"></p>
-<p>输出结果，里面都有一个构造函数，指回构造函数本身，可以告诉我们是由哪个构造函数创造出来的<img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914114404565.png" alt="image-20210914114404565"></p>
-<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914114902842.png" alt="image-20210914114902842"></p>
-<p>4：<img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914142742902.png" alt="image-20210914142742902"></p>
-<p>5：原型链</p>
-<p>只要是对象就有 proto原型，(对象原型的简写)，指向原型对象,</p>
-<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914145936660.png" alt="image-20210914145936660"></p>
-<p>输出如下：<img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914150027660.png" alt="image-20210914150027660"></p>
-<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914150235187.png" alt="image-20210914150235187"></p>
-<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914150445539.png" alt="image-20210914150445539"></p>
-<p>综上所诉：得出下面的关系</p>
-<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914150520301.png" alt="image-20210914150520301"></p>
-<p>描述：ldh是一个对象，对象里面有一个ldh.<strong>proto</strong>,指向的是Star原型对象，Star原型对象也是一个对象，它里面的Star.prototype._proto_指向Object原型对象，而Object原型对象里面的原型指向的为空。注意：原型对象函数里面的this指向的是实例对象</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//对象具有属性__proto__，可称为隐式原型，一个对象的隐式原型指向构造该对象的构造函数的原型</span></span><br></pre></td></tr></table></figure>
-
-
-<p>扩展内置对象：<img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914155505927.png" alt="image-20210914155505927"></p>
-<h4 id="4：继承"><a href="#4：继承" class="headerlink" title="4：继承"></a>4：继承</h4><p>ES6之前并没有给我们提供extends继承，我们可以通过构造函数+原型对象模拟实现继承，被称为组合继承</p>
-<p>1：借用父构造函数继承属性</p>
-<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914193059002.png" alt="image-20210914193059002"></p>
-<p>2：借助原型对象继承父类型方法</p>
-<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914194636560.png"></p>
-<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914194714883.png" alt="image-20210914194714883"></p>
-<p>工作流程如上所示</p>
-<h4 id="5-严格模式"><a href="#5-严格模式" class="headerlink" title="5:严格模式"></a>5:严格模式</h4><p>1：使用严格模式</p>
-<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210915131606567.png" alt="image-20210915131606567"></p>
-<p>2：严格模式中的变化</p>
-<ul>
-<li>变量必须先声明再使用</li>
-<li>不能随意删除已经声明好的变量</li>
-<li>以前在全局作用域函数中的this指向的window对象，严格模式下全局作用域函数中的this指向undefined</li>
-<li> 严格模式下，构造函数如果不加new调用，this会报错</li>
-<li>定时器this还是指向window,事件对象还是指向调用者</li>
-<li>严格模式下，函数里面的参数，不能重名</li>
-</ul>
-<h4 id="6-高阶函数"><a href="#6-高阶函数" class="headerlink" title="6:高阶函数"></a>6:高阶函数</h4><p>定义：高阶函数是对其他函数进行操作的函数，他接收函数作为参数或将函数作为返回值输出</p>
-<h4 id="7：闭包"><a href="#7：闭包" class="headerlink" title="7：闭包"></a>7：闭包</h4><p>闭包是一个函数，闭包指有权访问另一个函数作用域中变量的函数，闭包的主要作用：延伸了变量的作用范围， 等所有函数调用结束后，变量才会销毁</p>
-<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210915154557316.png" alt="image-20210915154557316"></p>
-<h4 id="8：浅拷贝和深拷贝"><a href="#8：浅拷贝和深拷贝" class="headerlink" title="8：浅拷贝和深拷贝"></a>8：浅拷贝和深拷贝</h4><ul>
-<li>浅拷贝只是拷贝一层，更深层次对象级别的只拷贝引用</li>
-</ul>
-<p>1:遍历拷贝，for  in</p>
-<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210915174111307.png" alt="image-20210915174111307"></p>
-<p>输出结果<img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210915174154762.png" alt="image-20210915174154762"></p>
-<p>解析：上面简单的数据都拷贝过来了，下面msg看着好像也拷贝过来了，msg是一个对象，内存中会开辟一块内存地址存放它的数据，而浅拷贝只是将拷贝的存放msg这个对象的内存地址拷贝给了o，就会存在一个问题，此时o中的msg和本来的msg指向同一个地址，如果改变了o中msg,就会影响本来的msg，(注意：obj中简单的数据拷贝到o中，改变o中的简单数据类型，不会改变原来obj中简单的数据类型)</p>
-<p>2:ES6语法糖浅拷贝</p>
-<p>Object.assign(o,obj),第一个参数：拷贝给谁，第二个参数：需要拷贝的对象，这里是将obj拷贝给o.</p>
-<p>2：深拷贝：拷贝多层，每一级到数据都会拷贝，拷贝后改变o也不会影响obj，原理：拷贝时，除了新开辟用来存储msg的空间A，会将空间A重新复制一个新的空间B，B用来存储拷贝的数据，再传给o，A,B两个独立的空间，这样改变o,也不会影响obj</p>
-<ul>
-<li>相当于在再用for in对里面的数组，对象数据类型再进行一次遍历，所以可以用到递归</li>
-</ul>
-<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916092817365.png" alt="image-20210916092817365"></p>
-<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916093256994.png" alt="image-20210916093256994"></p>
-<p>语法糖：JSON.stringfy() 与 JSON.parse()</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(obj))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>存在问题：遇到函数，undefined，Symbol，Date对象时会自动忽略，遇到正则时会返回空对象。</p>
-<h4 id="9：正则表达式-Regular-Expression–有规律的表达式"><a href="#9：正则表达式-Regular-Expression–有规律的表达式" class="headerlink" title="9：正则表达式(Regular Expression–有规律的表达式)"></a>9：正则表达式(Regular Expression–有规律的表达式)</h4><p>正则也是一种对象</p>
-<p>1：</p>
-<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916105558072.png" alt="image-20210916105558072"></p>
-<p>2：<img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916105941023.png" alt="image-20210916105941023"></p>
-<p>3：[ ]表示多选一</p>
-<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916110526086.png" alt="image-20210916110526086"></p>
-<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916110554261.png" alt="image-20210916110554261"></p>
-<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916110657223.png" alt="image-20210916110657223"></p>
-<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916110953546.png" alt="image-20210916110953546"></p>
-<p>4：<img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916111350771.png" alt="image-20210916111350771"></p>
-<p>5：<img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916113558323.png" alt="image-20210916113558323"></p>
-<p>6：<img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916114408729.png" alt="image-20210916114408729"></p>
-<p><img src="/2021/09/02/9-2/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916114632641.png" alt="image-20210916114632641"></p>
-]]></content>
-      <categories>
-        <category>Javascript积累</category>
-      </categories>
-      <tags>
-        <tag>Javascript积累</tag>
       </tags>
   </entry>
   <entry>
@@ -472,14 +334,204 @@ flex-flow属性是flex-deriction和flex-wrap属性的简写，默认值为[row n
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/01/07/hello-world/</url>
-    <content><![CDATA[]]></content>
+    <title>css积累(2)</title>
+    <url>/2021/09/10/css%E7%A7%AF%E7%B4%AF(2)/</url>
+    <content><![CDATA[<p>css积累第二部分，持续更新</p>
+ <a id="more"></a>
+
+<h4 id="1-px-em-rem-vw-vh的区别"><a href="#1-px-em-rem-vw-vh的区别" class="headerlink" title="1:px,em,rem,vw,vh的区别"></a>1:px,em,rem,vw,vh的区别</h4><ul>
+<li>px：像素px是相对于显示器屏幕分辨率而言的。</li>
+<li>em：相对于当前父元素的字体大小,比如父元素font-size:12px,子元素宽高10em,则子元素相当于10x12=120px</li>
+<li>rem(root em)：rem相对于根元素(html元素）设置字体大小，比如html元素，html {font-size:12px},子元素宽高10rem,则子元素相当于10x12=120px, 优点：就是可以通过修改html里面文字大小来改变页面中元素的大小，可以整体控制</li>
+<li>对于只需要适配少部分手机设备，且分辨率对页面影响不大的，使用px即可 </li>
+<li>对于需要适配各种移动设备，使用rem</li>
+<li><img src="/2021/09/10/css%E7%A7%AF%E7%B4%AF(2)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210910153354513.png" alt="image-20210910153354513"></li>
+</ul>
+<p>vh很少使用，宽高用vw就行，适用于移动端。1vw = 宽度的百分之一</p>
+<h4 id="2-媒体查询"><a href="#2-媒体查询" class="headerlink" title="2:媒体查询"></a>2:媒体查询</h4><p>css3新语法，@media可以针对不同的屏幕尺寸设置不同的样式,下面是基本语法</p>
+<p><img src="/2021/09/10/css%E7%A7%AF%E7%B4%AF(2)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210910165914644.png" alt="image-20210910165914644"></p>
+<p>mediatype:all(所有设备)||print(打印机)||scree(电脑屏幕，平板，手机)</p>
+<p>media feature:width,min-width,max-width</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">300px</span>) &#123;</span><br><span class="line">    <span class="selector-tag">body</span> &#123;</span><br><span class="line">        <span class="attribute">background-color</span>:lightblue;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3：BFC与IFC"><a href="#3：BFC与IFC" class="headerlink" title="3：BFC与IFC"></a>3：BFC与IFC</h4><h4 id="4-圣杯布局与双飞翼布局"><a href="#4-圣杯布局与双飞翼布局" class="headerlink" title="4. 圣杯布局与双飞翼布局"></a>4. 圣杯布局与双飞翼布局</h4><p>圣杯布局与双飞翼布局是为了<strong>实现一个两侧固定宽度，中间自适应的三栏布局</strong>。两者需要遵循以下要点：</p>
+<ul>
+<li>两侧固定宽度，中间自适应 </li>
+<li>中间部分在DOM结构上优先，以便先行渲染 </li>
+<li>允许三列中的任意一列成为最高列 </li>
+<li>只需要使用一个额外的 div 标签 </li>
+</ul>
+<p>核心是左边的 div margin-left:-100%</p>
+<h4 id="5：Grid布局"><a href="#5：Grid布局" class="headerlink" title="5：Grid布局"></a>5：Grid布局</h4><p>Flex 布局是轴线布局，只能指定项目针对轴线的位置，可以看作是一维布局。</p>
+<p>Grid 布局则是将容器划分为 ”行“ 和 ”列“，产生单元格，然后指定项目)所在的单元格，可以看作是二维布局。</p>
+<h4 id="6：伪类和伪元素有什么不同"><a href="#6：伪类和伪元素有什么不同" class="headerlink" title="6：伪类和伪元素有什么不同"></a>6：伪类和伪元素有什么不同</h4><p><strong>伪类用于当已有元素处于的某个状态时，为其添加对应的样式，这个状态是根据用户行为而动态变化的</strong>，比如说，当用户悬停在指定的元素时，我们可以用:hover来描述这个元素的状态。虽然它和普通的css类相似，可以为已有的元素添加样式，但是<strong>它只有处于dom树无法描述的状态下才能为元素添加样式</strong>，所以将其称为伪类。</p>
+<p><strong>伪元素不是 DOM 中的真实元素，但是存在于最终的渲染树中，可以为其添加样式，比如说，我们可以通过：before来在一个元素前增加一些文本</strong>。</p>
+<h4 id="7-HTML5-新特性"><a href="#7-HTML5-新特性" class="headerlink" title="7. HTML5 新特性"></a>7. HTML5 新特性</h4><p>音频、视频、地理位置、localStorage、sessionStorage</p>
+]]></content>
       <categories>
-        <category>VUE积累</category>
+        <category>css积累</category>
       </categories>
       <tags>
-        <tag>VUE积累</tag>
+        <tag>css积累</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>V8垃圾回收机制</title>
+    <url>/2021/01/07/hello-world/</url>
+    <content><![CDATA[<p>V8 的垃圾回收策略是基于分代式垃圾回收机制。在所有垃圾回收的算法中，没有一种能胜任所有的场景。因为在我们的实际应用中，对象的生存周期长短不一，不同的算法只能针对特定的情况具有最好的效果。</p>
+<p>因此目前的垃圾回收算法一般是按照对象的存活时间将内存进行分代，然后对不同的内存代采用不同的垃圾回收算法。</p>
+<a id="more"></a>
+
+<h2 id="V8-的内存分代"><a href="#V8-的内存分代" class="headerlink" title="V8 的内存分代"></a>V8 的内存分代</h2><p>在 V8 中主要将内存分为新生代和老生代，新生代中的对象存活时间较短，老生代中的对象存活时间较长或常驻内存，新生代中的对象有机会晋升到老生代。</p>
+<p><img src="https://www.sillywa.com/2021/04/02/V8-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/1.png" alt="新生代老生代表示"></p>
+<p>V8 堆整体的大小就是新生代的内存空间加上老生代的内存空间。在默认情况下，如果一直分配内存，在 64 位操作系统和 32 位操作系统下分别只能使用约 1.4 GB 和 0.7 GB 的大小。</p>
+<p>对于新生代而言，在 64 位和 32 位操作系统下内存的最大值为 32MB 和 16MB；对于老生代而言，在 64 位和 32 位操作系统下内存的最大值为 1400MB 和 700MB</p>
+<h2 id="V8-的主要垃圾回收算法"><a href="#V8-的主要垃圾回收算法" class="headerlink" title="V8 的主要垃圾回收算法"></a>V8 的主要垃圾回收算法</h2><p>根据不同的分代，V8 在新生代中使用 Scavenge 算法进行垃圾回收，而在老生代中使用 Mark-Sweep 和 Mark-Compact 进行垃圾回收。</p>
+<h3 id="Scavenge-算法"><a href="#Scavenge-算法" class="headerlink" title="Scavenge 算法"></a>Scavenge 算法</h3><p>Scavenge 算法是新生代中的对象进行垃圾回收的算法，其主要采用了 Cheney 算法，算法的核心思想是：</p>
+<p><strong>将堆一分为二</strong>，每一部分空间称为 semispace，<strong>然后采用复制的方式进行垃圾回收</strong>。在这两个 semispace 中，只有一个处于使用中，另一个处于闲置状态。处于使用中的空间称为 From 空间，处于闲置中的空间称为 To 空间。当我们在分配对象的时候，首先在 From 空间中进行分配。当进行垃圾回收的时候，检查 From 空间中的存活对象，将存活对象复制到 To 空间，而非存活对象的空间将会被释放。完成复制之后，From 空间变为 To 空间， To 空间变为 From 空间，即进行角色互换。</p>
+<p><strong>Scavenge 算法的优点是时间效率较高，缺点是只能利用一半的内存。由于该算法只复制存活的对象，因此对于生存周期较短的场景（新生代），存活的对象较少，非常适合应用该算法进行垃圾回收。</strong></p>
+<p>当一个对象在新生代中经过多次复制依然存活，它将被认为是生存周期较长的对象。这些生命周期较长的对象会被移动到老生代中，采用新的算法进行管理。<strong>对象从新生代移动到老生代称为晋升</strong>。</p>
+<p>因此我们在将 From 空间的对象移动到 To 空间之前需要进行检查，在一定条件下需要将存活周期较长的对象移动到老生代中，也就是完成对象晋升。</p>
+<p>对象晋升的主要条件有两个：</p>
+<ul>
+<li><p>对象是否经历过 Scavenge 回收</p>
+<p>在默认情况下， V8 的对象分配主要集中在 From 空间，对象从 From 复制到 To 空间的时候，会检查它的内存地址来判断该对象是否经历过一次 Scavenge 回收。如果经历过，会将该对象复制到老生代空间中；否则复制到 To 空间。</p>
+</li>
+<li><p>To 空间的内存占比超过 25%</p>
+<p>当要从 From 空间复制一个对象到 To 空间的时候，如果 To 空间已经使用了超过 25%，则这个对象直接晋升到老生代空间中。</p>
+</li>
+</ul>
+<h3 id="Mark-Sweep-和-Mark-Compact"><a href="#Mark-Sweep-和-Mark-Compact" class="headerlink" title="Mark-Sweep 和 Mark-Compact"></a>Mark-Sweep 和 Mark-Compact</h3><p>对于老生代中的对象，由于存活对象占比较大，再采用 Scavenge 算法会造成两个问题：</p>
+<ul>
+<li>存活对象较多，复制存活对象的效率将会很低</li>
+<li>浪费一半的空间</li>
+</ul>
+<p>因此 V8 在老生代中主要采用 Mark-Sweep 和 Mark-Compact 相结合的方法进行垃圾回收。</p>
+<p>Mark-Sweep 实际上就是标记清除的意思，它分为标记和清除两个阶段。该算法会遍历堆中的所有对象，并标记存活的对象，在随后的清除过程中，清除未被标记的对象。可以看出 Scavenge 中只复制活着的对象，而 Mark-Sweep 中只清理死亡的对象。活对象在新生代中占较少一部分，死亡对象在老生代中占较少一部分，这是两种回收方式能高效处理的原因。</p>
+<p>如图所示，黑色部分标记为死亡的对象。</p>
+<p><img src="https://www.sillywa.com/2021/04/02/V8-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/2.png" alt="标记清除"></p>
+<p><strong>Mark-Sweep 算法最大的问题是，在进行一次垃圾回收之后，内存空间会出现不连续的状态</strong>。这种内存碎片会对后续的内存分配造成问题。例如我们要给一个大对象分配内存的时候，这时所有的碎片空间都无法完成此次分配，就会提前触发垃圾回收机制，而这次回收是没有必要的。</p>
+<p>因此，为了 Mark-Sweep 解决内存碎片的问题，Mark-Compact 算法被提出来了。Mark-Compact 是标记整理的意思，是在 Mark-Sweep 的基础上演变而来的。<strong>Mark-Compact 在标记对象为死亡之后，在整理的过程中，将活的对象往一端移动，移动完成之后直接清理掉边界外的内存</strong>。</p>
+<p>由于 Mark-Compact 需要移动对象，因此它的执行效率不可能很快，所以在取舍上， <strong>V8 主要采用 Mark-Sweep 算法，在空间不足以给从新生代中晋升过来的对象分配空间的时候才使用 Mark-Compact</strong>。</p>
+<h3 id="Incremental-Marking"><a href="#Incremental-Marking" class="headerlink" title="Incremental Marking"></a>Incremental Marking</h3><p>为了避免出现 JS 应用逻辑与垃圾回收器看到的不一致的情况，垃圾回收的三种基本算法都需要将应用逻辑暂停下来，待执行完回收之后再恢复应用程序的执行，这被称为”全停顿“。</p>
+<p>在 V8 的分代式垃圾回收中，一次小垃圾回收只收集新生代，由于新生代默认配置较小，且其中存活的对象较少，所以即使它是全停顿也影响不大。但是在老生代中，空间配置较大，存活对象较多，全堆垃圾回收的标记、清理、整理等操作所造成的停顿就会较大，需要设法改善。</p>
+<p>为了降低全堆垃圾回收带来的停顿时间，V8 采用了增量标记，也就是将原本需要一口气完成标记的过程拆分为许多小步进行，每做完一小步就让 JS 应用逻辑执行一小会，标记与应用程序交替执行直到标记完成。</p>
+]]></content>
+      <categories>
+        <category>Javascript积累</category>
+      </categories>
+      <tags>
+        <tag>Javascript积累</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js基础积累(1)</title>
+    <url>/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/</url>
+    <content><![CDATA[<p> 这里积累了js中比较重要的知识</p>
+<a id="more"></a>
+
+<h4 id="1：let、const和var的概念与区别"><a href="#1：let、const和var的概念与区别" class="headerlink" title="1：let、const和var的概念与区别"></a>1：let、const和var的概念与区别</h4><p>let，const声明的变量只在其所在的代码块内有效。let声明的变量可以进行修改，而 const 用于定义不可修改的常量。</p>
+<p>var不存在块级作用域。区别：</p>
+<ul>
+<li>let,const不存在变量提升，var会有变量提升。即let，const一定要先声明，后使用 </li>
+<li>如果区域块内存在 let 和 const命令，则这个区域块内对这些命令声明的变量从一开始就形成了封闭作用域。只要在声明前使用这些变量，就会报错。 </li>
+<li>let 不会成为 window 的属性</li>
+</ul>
+<h4 id="2-ES6中的类和对象"><a href="#2-ES6中的类和对象" class="headerlink" title="2:ES6中的类和对象"></a>2:ES6中的类和对象</h4><p>1：创建类：class name{},创建对象：var  pp = new name()，constructor方法是类的构造函数，用于传递参数，返回对象实例，类的共有属性放到constructor里面，constructor函数，只要new生成实例时，就会自动调用这个函数，如果我们不写这个函数，类也会自动调用这个函数，注意细节：类中所有函数不需要写function,多个函数方法之间不需要添加逗号分割，类名首字母大写</p>
+<p>2：继承（extends,super）</p>
+<ul>
+<li>super关键字可以访问和调用父类上的函数（可以是构造函数，也可以是父类的普通函数），调用了父类的constructor函数，将子类的数据传递给父类constructor函数，此时父类的其他函数就可以使用子类的数据，子类在构造函数中使用super，必须放到this前面（必须先调用父类的构造方法，再使用子类的构造方法）</li>
+</ul>
+<p><img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210913181825655.png" alt="image-20210913181825655"></p>
+<ul>
+<li><p>ES6中没有变量提升，所以必须先定义类，才能通过类实例化对象。类中共有的属性和方法一定要加this使用</p>
+</li>
+<li><p>constructor里面的this 指向的事创建的实例对象，而方法里面的this指向的是这个方法的调用者</p>
+</li>
+</ul>
+<p>3:创建对象的方式</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> object() <span class="comment">//利用new Object()创建对象</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;  <span class="comment">//利用对象字面量创建对象</span></span><br><span class="line">             <span class="comment">//利用构造函数创建对象</span></span><br></pre></td></tr></table></figure>
+<h4 id="3：原型和原型链"><a href="#3：原型和原型链" class="headerlink" title="3：原型和原型链"></a>3：原型和原型链</h4><p>1:构造函数中如果有函数，那么每创建一个实例如果使用了这个函数，那么就会开辟一块内存来存放这个函数，那么就会导致创建的不同实例使用构造函数中的同一个函数时，开辟不同的内存，造成空间浪费。</p>
+<p><img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914105527995.png" alt="image-20210914105527995"></p>
+<p>一般情况下，我们的公共属性定义到构造函数里面，公共的方法我们放到原型对象身上，就可以避免上述的空间浪费问题</p>
+<p>2:</p>
+<p><img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914112046786.png" alt="image-20210914112046786"></p>
+<p><img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914111820473.png" alt="image-20210914111820473"></p>
+<p>3:<img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914113319604.png" alt="image-20210914113319604"></p>
+<p><img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914114109002.png" alt="image-20210914114109002"></p>
+<p>输出结果，里面都有一个构造函数，指回构造函数本身，可以告诉我们是由哪个构造函数创造出来的<img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914114404565.png" alt="image-20210914114404565"></p>
+<p><img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914114902842.png" alt="image-20210914114902842"></p>
+<p>4：<img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914142742902.png" alt="image-20210914142742902"></p>
+<p>5：原型链</p>
+<p>只要是对象就有 proto原型，(对象原型的简写)，指向原型对象,</p>
+<p><img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914145936660.png" alt="image-20210914145936660"></p>
+<p>输出如下：<img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914150027660.png" alt="image-20210914150027660"></p>
+<p><img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914150235187.png" alt="image-20210914150235187"></p>
+<p><img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914150445539.png" alt="image-20210914150445539"></p>
+<p>综上所诉：得出下面的关系</p>
+<p><img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914150520301.png" alt="image-20210914150520301"></p>
+<p>描述：ldh是一个对象，对象里面有一个ldh.<strong>proto</strong>,指向的是Star原型对象，Star原型对象也是一个对象，它里面的Star.prototype._proto_指向Object原型对象，而Object原型对象里面的原型指向的为空。注意：原型对象函数里面的this指向的是实例对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//对象具有属性__proto__，可称为隐式原型，一个对象的隐式原型指向构造该对象的构造函数的原型</span></span><br></pre></td></tr></table></figure>
+
+
+<p>扩展内置对象：<img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914155505927.png" alt="image-20210914155505927"></p>
+<h4 id="4：继承"><a href="#4：继承" class="headerlink" title="4：继承"></a>4：继承</h4><p>ES6之前并没有给我们提供extends继承，我们可以通过构造函数+原型对象模拟实现继承，被称为组合继承</p>
+<p>1：借用父构造函数继承属性</p>
+<p><img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914193059002.png" alt="image-20210914193059002"></p>
+<p>2：借助原型对象继承父类型方法</p>
+<p><img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914194636560.png"></p>
+<p><img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210914194714883.png" alt="image-20210914194714883"></p>
+<p>工作流程如上所示</p>
+<h4 id="5-严格模式"><a href="#5-严格模式" class="headerlink" title="5:严格模式"></a>5:严格模式</h4><p>1：使用严格模式</p>
+<p><img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210915131606567.png" alt="image-20210915131606567"></p>
+<p>2：严格模式中的变化</p>
+<ul>
+<li>变量必须先声明再使用</li>
+<li>不能随意删除已经声明好的变量</li>
+<li>以前在全局作用域函数中的this指向的window对象，严格模式下全局作用域函数中的this指向undefined</li>
+<li> 严格模式下，构造函数如果不加new调用，this会报错</li>
+<li>定时器this还是指向window,事件对象还是指向调用者</li>
+<li>严格模式下，函数里面的参数，不能重名</li>
+</ul>
+<h4 id="6-高阶函数"><a href="#6-高阶函数" class="headerlink" title="6:高阶函数"></a>6:高阶函数</h4><p>定义：高阶函数是对其他函数进行操作的函数，他接收函数作为参数或将函数作为返回值输出</p>
+<h4 id="7：闭包"><a href="#7：闭包" class="headerlink" title="7：闭包"></a>7：闭包</h4><p>闭包是一个函数，闭包指有权访问另一个函数作用域中变量的函数，闭包的主要作用：延伸了变量的作用范围， 等所有函数调用结束后，变量才会销毁</p>
+<p><img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210915154557316.png" alt="image-20210915154557316"></p>
+<h4 id="8：浅拷贝和深拷贝"><a href="#8：浅拷贝和深拷贝" class="headerlink" title="8：浅拷贝和深拷贝"></a>8：浅拷贝和深拷贝</h4><ul>
+<li>浅拷贝只是拷贝一层，更深层次对象级别的只拷贝引用</li>
+</ul>
+<p>1:遍历拷贝，for  in</p>
+<p><img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210915174111307.png" alt="image-20210915174111307"></p>
+<p>输出结果<img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210915174154762.png" alt="image-20210915174154762"></p>
+<p>解析：上面简单的数据都拷贝过来了，下面msg看着好像也拷贝过来了，msg是一个对象，内存中会开辟一块内存地址存放它的数据，而浅拷贝只是将拷贝的存放msg这个对象的内存地址拷贝给了o，就会存在一个问题，此时o中的msg和本来的msg指向同一个地址，如果改变了o中msg,就会影响本来的msg，(注意：obj中简单的数据拷贝到o中，改变o中的简单数据类型，不会改变原来obj中简单的数据类型)</p>
+<p>2:ES6语法糖浅拷贝</p>
+<p>Object.assign(o,obj),第一个参数：拷贝给谁，第二个参数：需要拷贝的对象，这里是将obj拷贝给o.</p>
+<p>2：深拷贝：拷贝多层，每一级到数据都会拷贝，拷贝后改变o也不会影响obj，原理：拷贝时，除了新开辟用来存储msg的空间A，会将空间A重新复制一个新的空间B，B用来存储拷贝的数据，再传给o，A,B两个独立的空间，这样改变o,也不会影响obj</p>
+<ul>
+<li>相当于在再用for in对里面的数组，对象数据类型再进行一次遍历，所以可以用到递归</li>
+</ul>
+<p><img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916092817365.png" alt="image-20210916092817365"></p>
+<p><img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916093256994.png" alt="image-20210916093256994"></p>
+<p>语法糖：JSON.stringfy() 与 JSON.parse()</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(obj))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>存在问题：遇到函数，undefined，Symbol，Date对象时会自动忽略，遇到正则时会返回空对象。</p>
+<h4 id="9：正则表达式-Regular-Expression–有规律的表达式"><a href="#9：正则表达式-Regular-Expression–有规律的表达式" class="headerlink" title="9：正则表达式(Regular Expression–有规律的表达式)"></a>9：正则表达式(Regular Expression–有规律的表达式)</h4><p>正则也是一种对象</p>
+<p>1：</p>
+<p><img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916105558072.png" alt="image-20210916105558072"></p>
+<p>2：<img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916105941023.png" alt="image-20210916105941023"></p>
+<p>3：[ ]表示多选一</p>
+<p><img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916110526086.png" alt="image-20210916110526086"></p>
+<p><img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916110554261.png" alt="image-20210916110554261"></p>
+<p><img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916110657223.png" alt="image-20210916110657223"></p>
+<p><img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916110953546.png" alt="image-20210916110953546"></p>
+<p>4：<img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916111350771.png" alt="image-20210916111350771"></p>
+<p>5：<img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916113558323.png" alt="image-20210916113558323"></p>
+<p>6：<img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916114408729.png" alt="image-20210916114408729"></p>
+<p><img src="/2021/09/02/js%E5%9F%BA%E7%A1%80%E7%A7%AF%E7%B4%AF(1)/Users/蔡勇\AppData\Roaming\Typora\typora-user-images\image-20210916114632641.png" alt="image-20210916114632641"></p>
+]]></content>
+      <categories>
+        <category>Javascript积累</category>
+      </categories>
+      <tags>
+        <tag>Javascript积累</tag>
       </tags>
   </entry>
   <entry>
@@ -503,7 +555,7 @@ flex-flow属性是flex-deriction和flex-wrap属性的简写，默认值为[row n
 <p>​           onRejected<br>可选。<br>承诺被拒绝时要运行的错误处理程序函数。</p>
 </li>
 </ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">		<span class="keyword">var</span> p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(<span class="literal">false</span>)&#123;</span><br><span class="line">				resolve(<span class="string">&quot;数据请求成功111111111&quot;</span>)</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				reject(<span class="string">&quot;数据请求失败22222222222&quot;</span>)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br><span class="line">		<span class="built_in">console</span>.log(p1);  </span><br><span class="line"></span><br><span class="line">		p1.then(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(res);</span><br><span class="line">		&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(err);</span><br><span class="line">		&#125;)</span><br><span class="line"></span><br><span class="line">		p1.catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">&quot;catch:&quot;</span>,err);</span><br><span class="line">		&#125;)</span><br><span class="line"><span class="comment">//[[Prototype]]: Promise//[[PromiseState]]: &quot;rejected&quot;//[[PromiseResult]]: &quot;数据请求失败22222222222&quot;</span></span><br><span class="line"><span class="comment">//数据请求失败数据请求失败22222222222</span></span><br><span class="line"><span class="comment">//catch: 数据请求失败22222222222</span></span><br><span class="line">	&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">		<span class="keyword">var</span> p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(<span class="literal">false</span>)&#123;</span><br><span class="line">				resolve(<span class="string">&quot;数据请求成功111111111&quot;</span>)</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				reject(<span class="string">&quot;数据请求失败22222222222&quot;</span>)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br><span class="line">		<span class="built_in">console</span>.log(p1);  <span class="comment">//Promise &#123; &lt;rejected&gt; &#x27;数据请求失败22222222222&#x27; &#125;</span></span><br><span class="line"></span><br><span class="line">		p1.then(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(res);</span><br><span class="line">		&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(err);  <span class="comment">//数据请求失败22222222222</span></span><br><span class="line">		&#125;)</span><br><span class="line"></span><br><span class="line">		p1.catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">&quot;catch:&quot;</span>,err);<span class="comment">//catch: 数据请求失败22222222222</span></span><br><span class="line">		&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <h4 id="2：async关键字"><a href="#2：async关键字" class="headerlink" title="2：async关键字"></a>2：async关键字</h4><ul>
 <li><p><strong>当且仅当async修饰函数后，函数内可以使用await。await后面可以跟一个返回promise对象的函数</strong></p>
 </li>
@@ -540,24 +592,38 @@ flex-flow属性是flex-deriction和flex-wrap属性的简写，默认值为[row n
       </tags>
   </entry>
   <entry>
-    <title>后续补充学习内容充实博客</title>
+    <title>防抖和节流</title>
     <url>/2021/01/08/%E5%B1%81%E5%B1%81%E5%A4%A7%E7%8E%8B/</url>
-    <content><![CDATA[<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><p>链表 栈  队列 图 树 排序 </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.wrapper &#123;</span><br><span class="line">  &#96;&#96;width&#96;&#96;: &#96;&#96;900px&#96;&#96;;</span><br><span class="line">  &#96;&#96;height&#96;&#96;: &#96;&#96;900px&#96;&#96;;</span><br><span class="line">  &#96;&#96;background-color&#96;&#96;: &#96;&#96;gray&#96;&#96;;</span><br><span class="line">  &#96;&#96;display&#96;&#96;: &#96;&#96;table-cell&#96;&#96;;</span><br><span class="line">  &#96;&#96;vertical-align&#96;&#96;: &#96;&#96;middle&#96;&#96;;</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<p>前面在实现 Vue 里面的滚动加载时，我们监听页面的滚动事件，然后不断获取元素距离页面顶部的距离。</p>
+<p>但是在执行过程中，当我们轻轻滚动一下，浏览器会打印出很多 top 的值，说明函数执行的频率相当高。</p>
+<p>但是我们不希望页面的滚动事件频繁的执行，毕竟浏览器的性能是有限的，所以对于这种情况就需要我们进行优化。<a id="more"></a></p>
+<h2 id="防抖（debounce）"><a href="#防抖（debounce）" class="headerlink" title="防抖（debounce）"></a>防抖（debounce）</h2><p>基于以上需求，首先提出一种思路：<strong>在第一次触发事件的时候，不立即执行函数，而是等待一个时间期限 delay</strong>然后：</p>
+<ul>
+<li>如果在这个时间 delay 内没有再次触发该事件，那么久执行函数</li>
+<li>如果在这个事件 delay 内再次触发该事件，那么当前的计时器取消，重新开始计时</li>
+</ul>
+<p>实现效果：短时间内大量触发同一事件，只执行一次函数</p>
+<p>实现：根据以上分析，我们肯定需要使用 setTimeout 这个函数，同时还需要保存计时器，以方便后续取消计时。那么函数的实现方法如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">fn 为需要防抖的函数</span></span><br><span class="line"><span class="comment">delay 为时间期限</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, delay</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 初始化计时器</span></span><br><span class="line">	<span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(timer) &#123;</span><br><span class="line">            <span class="comment">// 如果正在进行一个计时过程，说明在 delay 事件内重复触发该事件，所以取消当前的计时</span></span><br><span class="line">			<span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">		&#125;</span><br><span class="line">        <span class="comment">// 新建一个计时器</span></span><br><span class="line">		timer = <span class="built_in">setTimeout</span>(fn, delay)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.content</span> &#123;</span><br><span class="line">  ``background-color``: ``red``;</span><br><span class="line">  ``<span class="selector-tag">width</span>``: ``300<span class="selector-tag">px</span>``;</span><br><span class="line">  ``<span class="selector-tag">height</span>``: ``300<span class="selector-tag">px</span>``;</span><br><span class="line">  ``<span class="selector-tag">margin</span>``: ``0` `<span class="selector-tag">auto</span>``;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
+<p>这样我们就是先了防抖函数，现在给出防抖的定义：</p>
+<blockquote>
+<p>短时间内连续触发相同的事件,防抖就是让在某个时间期限内事件处理函数只执行一次</p>
+</blockquote>
+<h2 id="节流（throttle）"><a href="#节流（throttle）" class="headerlink" title="节流（throttle）"></a>节流（throttle）</h2><p>思考上面方案就可以发现一个问题：<strong>在限定时间内不断触发事件,只要不停止触发,理论上就永远不会执行函数输出结果。</strong></p>
+<p>但是如果我们希望：<strong>即使用户不断触发事件,也能在某个时间间隔之后给出反馈呢</strong>。</p>
+<p>其实这就类似于<strong>定时开放的函数，也就是让函数执行一次后，在某个时间段内暂时失去效果，即使触发事件，函数也不会执行，过了这段时间再重新激活（类似于技能冷却）。</strong></p>
+<p>实现效果：如果短时间内大量触发同一事件，那么在函数执行一次之后，该函数在指定的时间期限内不再工作，直至过了这段时间才重新生效。</p>
+<p>实现：这里可以借助 setTimeout 来实现，并加上一个状态位 valid 表示函数是否可执行。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn ,delay</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 初始化 valid = true 表示函数可执行</span></span><br><span class="line">    <span class="keyword">let</span> valid = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!valid) &#123;</span><br><span class="line">            <span class="comment">// 如果函数不可执行，直接 return</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 如果函数可执行， 放入任务队列等待执行</span></span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">            fn()</span><br><span class="line">            <span class="comment">// 函数执行完成，valid 设为 true 表示函数可执行</span></span><br><span class="line">            valid = <span class="literal">true</span></span><br><span class="line">        &#125;, delay)</span><br><span class="line">        <span class="comment">// valid 设为 false，表示正在等待执行该函数，函数暂时不可用</span></span><br><span class="line">        valid = <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，节流函数并不止上面这种方案，也可以直接将 setTimeout 返回的标记当作条件判断当前定时器是否存在，如果存在表示还在冷却，并且在执行 fn 之后消除定时器表示激活。</p>
+<h2 id="应用场景举例"><a href="#应用场景举例" class="headerlink" title="应用场景举例"></a>应用场景举例</h2><ol>
+<li>搜索框 input 事件，例如要支持输入实时搜索可以使用节流方案（间隔一段时间就必须查询相关内容），或者实现输入间隔大于某个值，就当作用户输入完成，然后开始搜索</li>
+<li>页面 resize 事件，常用于需要做页面适配的时候。需要根据最终呈现的页面情况进行 DOM 渲染，这种情况一般用防抖，因为只需要判断最后一次的变化情况</li>
+<li>页面滚动实现懒加载，可以使用防抖，因此在页面滚动过程中最终都会无法滚动，从而执行函数。</li>
+</ol>
 ]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法积累</tag>
-      </tags>
   </entry>
   <entry>
     <title>Javascript重点总结</title>
@@ -845,8 +911,62 @@ flex-flow属性是flex-deriction和flex-wrap属性的简写，默认值为[row n
 <h3 id="16：BOM"><a href="#16：BOM" class="headerlink" title="16：BOM"></a>16：BOM</h3><p>把浏览器当成一个对象来看待，顶级对象为window（详情见有道云笔记）</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;lalala&quot;</span>)</span><br><span class="line">&#125;,<span class="number">2000</span>)</span><br></pre></td></tr></table></figure>
 <h3 id="17：立即执行函数"><a href="#17：立即执行函数" class="headerlink" title="17：立即执行函数"></a>17：立即执行函数</h3><p>立即执行函数，不需要调用，立马能够自己执行的函数，最大的作用就是独立创建了一个作用域，执行完就会释放，所以两个立即执行函数里面所有的变量都是局部变量，不会有命名冲突的情况</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;) ()    <span class="comment">//第一种写法,第二个小括号可以看作是调用函数，且可以传递参数</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a+b) <span class="comment">//5</span></span><br><span class="line">&#125;) (<span class="number">2</span>,<span class="number">3</span>);   <span class="comment">//两个立即执行函数之间用;隔开</span></span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">sum</span> (<span class="params">a,b</span>)</span>&#123;  <span class="comment">//也可以给立即执行函数起名字</span></span><br><span class="line">    <span class="built_in">console</span>.log(a+b) <span class="comment">//5</span></span><br><span class="line">&#125;) (<span class="number">2</span>,<span class="number">3</span>)  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125; ())    <span class="comment">//第二种写法</span></span><br></pre></td></tr></table></figure>
-]]></content>
+<p>要成为立即执行函数，需要满足两个条件：</p>
+<ul>
+<li><p>声明一个匿名函数</p>
+</li>
+<li><p>立马调用这个匿名函数</p>
+</li>
+<li><p>立即执行函数的作用只有一个，那就是<strong>创建独立的作用域</strong>。 让外部无法访问作用域内部的变量，从而避免<strong>变量污染</strong></p>
+</li>
+<li><pre><code class="js">(function()&#123;console.log(&#39;这是一个立即执行函数&#39;))()
+
+//首先声明一个匿名函数(function()&#123;console.log(&#39;这是一个立即执行函数&#39;))
+//然后再匿名函数的后面接一对括号()，立马调用这个函数
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;js</span><br><span class="line">(function()&#123;&#125;) ()    &#x2F;&#x2F;第一种写法,第二个小括号可以看作是调用函数，且可以传递参数</span><br><span class="line">(function(a,b)&#123;</span><br><span class="line">    console.log(a+b) &#x2F;&#x2F;5</span><br><span class="line">&#125;) (2,3);   &#x2F;&#x2F;两个立即执行函数之间用;隔开</span><br><span class="line"></span><br><span class="line">(function sum (a,b)&#123;  &#x2F;&#x2F;也可以给立即执行函数起名字</span><br><span class="line">    console.log(a+b) &#x2F;&#x2F;5</span><br><span class="line">&#125;) (2,3)  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(function()&#123;&#125; ())    &#x2F;&#x2F;第二种写法</span><br></pre></td></tr></table></figure>
+### 18：匿名函数
+</code></pre>
+</li>
+</ul>
+<p>与<strong>匿名函数</strong>相对应的是<strong>具名函数</strong>，具名函数非常简单：function myFn(){}，这就是个具名函数这个函数的name是myFn。可以测试一下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">cosnole.log(myFn.name);<span class="comment">//myFn</span></span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+<p>特别说明一下，es6版本中引用型函数表达式也可以看成是具名函数。比如var myFn1 = function(){}，打印myFn1.name，也会得到myFn1。</p>
+<p>再说匿名函数，一般用到匿名函数的时候都是立即执行的。通常叫做自执行匿名函数或者自调用匿名函数。常用来构建沙箱模式，作用是<strong>开辟封闭的变量作用域环境</strong>，在多人联合工作中，合并js代码后，不会出现相同变量互相冲突的问题。立即执行的匿名函数有很多种写法，常见的有以下两种：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;我是匿名方式1&quot;</span>);</span><br><span class="line">&#125;)();<span class="comment">//我是匿名方式1</span></span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;我是匿名方式2&quot;</span>);</span><br><span class="line">&#125;());<span class="comment">//我是匿名方式2</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log((<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;).name);<span class="comment">//&#x27;&#x27; name为空</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<h3 id="19闭包"><a href="#19闭包" class="headerlink" title="19闭包"></a>19闭包</h3><p>是指有权访问另一个函数作用域中的变量的函数。两部分构成：函数，以及创建该函数的环境。环境由闭包创建时在作用域中的任何局部变量组成。</p>
+<p><strong>创建闭包最常见方式，就是在一个函数内部创建另一个函数。</strong></p>
+<p><strong>闭包的作用域链包含着它自己的作用域，以及包含它的函数的作用域和全局作用域。</strong></p>
+<h4 id="1：作用域和作用域链"><a href="#1：作用域和作用域链" class="headerlink" title="1：作用域和作用域链"></a>1：作用域和作用域链</h4><ul>
+<li><p>javascript中大部分情况下，只有两种作用域类型：</p>
+<ul>
+<li><strong>全局作用域</strong>：全局作用域为程序的最外层作用域，一直存在。</li>
+<li><strong>函数作用域</strong>：函数作用域只有函数被定义时才会创建，包含在父级函数作用域 / 全局作用域内。</li>
+</ul>
+</li>
+<li><p>由于作用域的限制，每段独立的执行代码块只能访问自己作用域和外层作用域中的变量，无法访问到内层作用域的变量。</p>
+</li>
+<li><p>当可执行代码内部访问变量时，会先查找本地作用域，如果找到目标变量即返回，否则会去父级作用域继续查找…一直找到全局作用域。我们把这种作用域的嵌套机制，称为 作用域链。</p>
+</li>
+</ul>
+<h4 id="2：词法作用域"><a href="#2：词法作用域" class="headerlink" title="2：词法作用域"></a>2：词法作用域</h4><p><strong>词法作用域</strong>（<code>Lexical Scopes</code>）是 <code>javascript</code> 中使用的作用域类型，<strong>词法作用域</strong> 也可以被叫做 <strong>静态作用域</strong>，与之相对的还有 <strong>动态作用域</strong>。那么 <code>javascript</code> 使用的 <strong>词法作用域</strong> 和 <strong>动态作用域</strong> 的区别是什么呢？看下面这段代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> value = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> value = <span class="number">2</span>;</span><br><span class="line">  foo();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bar();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 结果是 1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>上面这段代码中，一共有三个作用域：</p>
+<ul>
+<li>全局作用域</li>
+<li><code>foo</code> 的函数作用域</li>
+<li><code>bar</code> 的函数作用域</li>
+</ul>
+<p>一直到这边都好理解，可是 <code>foo</code> 里访问了本地作用域中没有的变量 <code>value</code> 。根据前面说的，引擎为了拿到这个变量就要去 <code>foo</code> 的上层作用域查询，那么 <code>foo</code> 的上层作用域是什么呢？是它 <strong>调用时</strong> 所在的 bar 作用域？还是它 <strong>定义时</strong> 所在的全局作用域？</p>
+<p>这个关键的问题就是 <code>javascript</code> 中的作用域类型——<strong>词法作用域。</strong></p>
+<blockquote>
+<p>词法作用域，就意味着函数被定义的时候，它的作用域就已经确定了，和拿到哪里执行没有关系，因此词法作用域也被称为 “静态作用域”。<strong>函数的作用域取决于它声明的位置与实际调用位置无关</strong></p>
+</blockquote>
+<h4 id="3-块级作用域"><a href="#3-块级作用域" class="headerlink" title="3:块级作用域"></a>3:块级作用域</h4>]]></content>
       <categories>
         <category>Javascript积累</category>
       </categories>
@@ -898,14 +1018,14 @@ flex-flow属性是flex-deriction和flex-wrap属性的简写，默认值为[row n
 <h3 id="2-3-显示绑定"><a href="#2-3-显示绑定" class="headerlink" title="2.3 显示绑定"></a>2.3 显示绑定</h3><p>就像我们刚才看到的那样，在分析隐式绑定时，我们必须在一个对象内部包含一个指向函数的属性，并通过这个属性间接引用函数，从而把 this 间接绑定到对象上。</p>
 <p>如果我们不想在对象内部包含函数的引用，而想在某个对象上强制调用函数，这是我们需要使用函数的 call() 和 apply() 方法。</p>
 <p>它们的第一个参数是一个对象，是给 this 准备的，接着在调用函数时将其绑定到 this。因为可以直接指定 this 的绑定对象，因此称之为显示绑定。 示绑定的另一种情况就是硬绑定。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">sfunction <span class="function"><span class="title">foo</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a: <span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    foo.call(obj);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">setTimeout</span>(bar, <span class="number">1000</span>);  <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 硬绑定的 bar 不可能再修改它的 this</span></span><br><span class="line">bar.call(<span class="built_in">window</span>);   <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a: <span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    foo.call(obj);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">setTimeout</span>(bar, <span class="number">1000</span>);  <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 硬绑定的 bar 不可能再修改它的 this</span></span><br><span class="line">bar.call(<span class="built_in">window</span>);   <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
 <p>因为我们把 bar 函数内部调用了 foo，而 foo 的 this 已经被强制绑定在 obj 上，因此无论之后如何调用 bar 函数，它总会手动在 obj 上调用 foo。</p>
 <p>硬绑定的另一种应用场景就是创建一个包裹函数，负责接收参数并返回值：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">something</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a, something);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.a + something;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a: <span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> foo.apply(obj, <span class="built_in">arguments</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = bar(<span class="number">3</span>); <span class="comment">//2 3</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
 <p>另一种方法是创建一个可以重复使用的辅助函数：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">something</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a, something);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.a + something;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a: <span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bind</span>(<span class="params">fn, obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> fn.apply(obj, <span class="built_in">arguments</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bar = bind(foo, obj);</span><br><span class="line"><span class="keyword">var</span> b = bar(<span class="number">3</span>); <span class="comment">// 2 3</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
 <p>ES5 中提供了 Function.prototype.bind 函数，它的用法如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">unction <span class="function"><span class="title">foo</span>(<span class="params">something</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a, something);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.a + something;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a: <span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> bar = foo.bind(obj);</span><br><span class="line"><span class="keyword">var</span> b = bar(<span class="number">3</span>); <span class="comment">// 2 3</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">something</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a, something);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.a + something;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a: <span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> bar = foo.bind(obj);</span><br><span class="line"><span class="keyword">var</span> b = bar(<span class="number">3</span>); <span class="comment">// 2 3</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
 <p>bind() 会返回一个硬编码的新函数，它会把你指定的参数设置为 this 的上下文并调用原始函数。</p>
 <h3 id="2-4-new绑定"><a href="#2-4-new绑定" class="headerlink" title="2.4 new绑定"></a>2.4 new绑定</h3><p>在传统的面向对象的语言中，“构造函数”是类中的一些的特殊方法，使用 new 初始化类时会调用类中的构造函数。Javascript 中也有一个 new 操作符，但是 Javascript 中 new 的机制实际上和面向对象的语言完全不同。在 Javascript 中，构造函数只是一些使用 new 操作符时被调用的函数。它们并不属于某个类，也不会实例化一个类。</p>
 <p>使用 new 来调用函数，或者说发生构造函数调用时，会自动执行下面的操作：</p>
